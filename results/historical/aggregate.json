@@ -1,0 +1,54 @@
+{
+  "metrics": {
+    "cnn": {
+      "accuracy": {
+        "mean": 0.3333333333333333,
+        "std": 0.09316949906249122
+      },
+      "macro_f1": {
+        "mean": 0.20112433862433865,
+        "std": 0.09352022573148162
+      },
+      "balanced_accuracy": {
+        "mean": 0.3333333333333333,
+        "std": 0.09316949906249122
+      }
+    },
+    "gan": {
+      "accuracy": {
+        "mean": 0.25,
+        "std": 0.0
+      },
+      "macro_f1": {
+        "mean": 0.09999999999999999,
+        "std": 1.3877787807814457e-17
+      },
+      "balanced_accuracy": {
+        "mean": 0.25,
+        "std": 0.0
+      }
+    }
+  },
+  "method": "Each test fold is one unseen subject; one separate subject for validation",
+  "dataset": {
+    "images": 48,
+    "subjects": 6,
+    "counts": {
+      "sadness": 12,
+      "happiness": 12,
+      "neutral": 12,
+      "fear": 12
+    }
+  },
+  "config": {
+    "data": "data/raw",
+    "output": "/mnt/data/prml_final_results",
+    "fold": "all",
+    "cnn_epochs": 25,
+    "gan_epochs": 40,
+    "batch_size": 8,
+    "lr": 0.0002,
+    "seed": 42,
+    "device": "auto"
+  }
+}

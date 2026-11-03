@@ -1,0 +1,218 @@
+{
+  "fold": 5,
+  "counts": {
+    "train": 32,
+    "val": 8,
+    "test": 8
+  },
+  "subjects": {
+    "train": [
+      "066",
+      "079",
+      "116",
+      "140"
+    ],
+    "val": [
+      "004"
+    ],
+    "test": [
+      "168"
+    ]
+  },
+  "models": {
+    "cnn": {
+      "accuracy": 0.375,
+      "macro_f1": 0.2777777777777778,
+      "balanced_accuracy": 0.375,
+      "precision_by_class": {
+        "sadness": 0.2857142857142857,
+        "happiness": 1.0,
+        "neutral": 0.0,
+        "fear": 0.0
+      },
+      "recall_by_class": {
+        "sadness": 1.0,
+        "happiness": 0.5,
+        "neutral": 0.0,
+        "fear": 0.0
+      },
+      "f1_by_class": {
+        "sadness": 0.4444444444444445,
+        "happiness": 0.6666666666666666,
+        "neutral": 0.0,
+        "fear": 0.0
+      },
+      "confusion_matrix": [
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          0
+        ]
+      ],
+      "labels": [
+        "sadness",
+        "happiness",
+        "neutral",
+        "fear"
+      ],
+      "test_predictions": [
+        {
+          "filename": "168_m_f_s_a.jpg",
+          "true": "sadness",
+          "predicted": "sadness"
+        },
+        {
+          "filename": "168_m_f_s_b.jpg",
+          "true": "sadness",
+          "predicted": "sadness"
+        },
+        {
+          "filename": "168_m_f_h_a.jpg",
+          "true": "happiness",
+          "predicted": "happiness"
+        },
+        {
+          "filename": "168_m_f_h_b.jpg",
+          "true": "happiness",
+          "predicted": "sadness"
+        },
+        {
+          "filename": "168_m_f_n_a.jpg",
+          "true": "neutral",
+          "predicted": "sadness"
+        },
+        {
+          "filename": "168_m_f_n_b.jpg",
+          "true": "neutral",
+          "predicted": "sadness"
+        },
+        {
+          "filename": "168_m_f_f_a.jpg",
+          "true": "fear",
+          "predicted": "sadness"
+        },
+        {
+          "filename": "168_m_f_f_b.jpg",
+          "true": "fear",
+          "predicted": "sadness"
+        }
+      ]
+    },
+    "gan": {
+      "accuracy": 0.25,
+      "macro_f1": 0.1,
+      "balanced_accuracy": 0.25,
+      "precision_by_class": {
+        "sadness": 0.0,
+        "happiness": 0.0,
+        "neutral": 0.25,
+        "fear": 0.0
+      },
+      "recall_by_class": {
+        "sadness": 0.0,
+        "happiness": 0.0,
+        "neutral": 1.0,
+        "fear": 0.0
+      },
+      "f1_by_class": {
+        "sadness": 0.0,
+        "happiness": 0.0,
+        "neutral": 0.4,
+        "fear": 0.0
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0
+        ]
+      ],
+      "labels": [
+        "sadness",
+        "happiness",
+        "neutral",
+        "fear"
+      ],
+      "test_predictions": [
+        {
+          "filename": "168_m_f_s_a.jpg",
+          "true": "sadness",
+          "predicted": "neutral"
+        },
+        {
+          "filename": "168_m_f_s_b.jpg",
+          "true": "sadness",
+          "predicted": "neutral"
+        },
+        {
+          "filename": "168_m_f_h_a.jpg",
+          "true": "happiness",
+          "predicted": "neutral"
+        },
+        {
+          "filename": "168_m_f_h_b.jpg",
+          "true": "happiness",
+          "predicted": "neutral"
+        },
+        {
+          "filename": "168_m_f_n_a.jpg",
+          "true": "neutral",
+          "predicted": "neutral"
+        },
+        {
+          "filename": "168_m_f_n_b.jpg",
+          "true": "neutral",
+          "predicted": "neutral"
+        },
+        {
+          "filename": "168_m_f_f_a.jpg",
+          "true": "fear",
+          "predicted": "neutral"
+        },
+        {
+          "filename": "168_m_f_f_b.jpg",
+          "true": "fear",
+          "predicted": "neutral"
+        }
+      ]
+    }
+  }
+}
