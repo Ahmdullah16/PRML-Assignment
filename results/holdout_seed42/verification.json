@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "model": "cnn",
+      "partition": "train",
+      "images": 24,
+      "replay_verified": true
+    },
+    {
+      "model": "cnn",
+      "partition": "validation",
+      "images": 16,
+      "replay_verified": true
+    },
+    {
+      "model": "cnn",
+      "partition": "test",
+      "images": 8,
+      "replay_verified": true
+    },
+    {
+      "model": "gan",
+      "partition": "train",
+      "images": 24,
+      "replay_verified": true
+    },
+    {
+      "model": "gan",
+      "partition": "validation",
+      "images": 16,
+      "replay_verified": true
+    },
+    {
+      "model": "gan",
+      "partition": "test",
+      "images": 8,
+      "replay_verified": true
+    }
+  ]
+}

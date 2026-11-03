@@ -4,7 +4,29 @@
 
 A tested PyTorch study of **happiness, sadness, fear and neutral** using 48 original photographs from six subjects. A supervised CNN is compared with the **expression head of an AC-GAN discriminator**, using identical subject-disjoint test/validation partitions. The Streamlit research dashboard works without private images or checkpoints; prediction is enabled only when trusted weights are available locally.
 
-**[Open the verified public research dashboard](https://facial-expression.streamlit.app/)** · results-only; trained weights remain private.
+**[Open the research dashboard](https://facial-expression.streamlit.app/)** · seed-42 classifier inference and research reports.
+
+## New: seed-42 notebook and separate split reports
+
+Open [the executed project notebook](notebooks/PRML_Seed42_CNN_ACGAN.ipynb). Its **13 code cells executed without errors** using the supplied private ZIP. Install `requirements-notebook.txt` for the notebook environment. The default ZIP path is the user-provided Windows path; use `PRML_DATA_ZIP` to override it elsewhere.
+
+The requested **50:30:20** ratio is rounded across six complete subjects to **3:2:1 subjects**, i.e. **24/16/8 images (50%/33.33%/16.67%)**. Seed 42 produces subject order `116, 079, 168, 140, 066, 004`: the first three train, the next two validate, and `004` tests. Rows and training minibatches also shuffle reproducibly. There is no subject overlap and no validation/test augmentation.
+
+| Seed-42 partition | CNN accuracy | AC-GAN accuracy |
+|---|---:|---:|
+| Training (24 images, seen subjects) | 100.00% | 25.00% |
+| Validation (16 images, checkpoint selection) | 81.25% | 25.00% |
+| Test (8 images, held-out subject) | 37.50% | 25.00% |
+
+Separate [training](reports/seed42/TRAIN_REPORT.md), [validation](reports/seed42/VALIDATION_REPORT.md), [test](reports/seed42/TEST_REPORT.md) and [experiment](reports/seed42/EXPERIMENT_REPORT.md) reports include class-wise precision/recall/F1, loss and confusion matrices. Test macro F1 is **0.2429 CNN** and **0.1000 AC-GAN**. The train–test gap limits generalization; validation scores are selection-biased. These images were examined in the prior LOSO study, so this split is not a new external test dataset.
+
+```bash
+python -m pip install -r requirements-notebook.txt
+python -m scripts.run_holdout --zip "PATH/TO/PRML Assignment Data.zip" --export
+python -m scripts.report_holdout
+```
+
+Completed matching runs are verified and reused, not retrained silently. All six model/partition evaluations replay from saved checkpoints. Only the two validation-selected **classifier** checkpoints are packaged under `deployment/` for the requested public prediction; the GAN generator, ZIP and original photographs remain excluded. The deployed app never trains at startup. Statistical evidence from this new split is kept separate from the historical and corrected LOSO results below.
 
 ![Corrected experiment comparison](results/figures/corrected/comparison.png)
 
@@ -38,7 +60,7 @@ python -m pytest -q
 python -m streamlit run app/streamlit_app.py
 ```
 
-The app never retrains during startup. Its seven pages are Overview, Dataset Explorer, CNN Explorer, GAN Explorer, Model Comparison, Prediction Studio and Research Report. Results, equations, architectures, fold curves, confusion matrices and report downloads work without model weights. Missing weights disable upload inference visibly; predictions are never filled with random outputs.
+The app never retrains during startup. Its seven pages are Overview, Dataset Explorer, CNN Explorer, GAN Explorer, Model Comparison, Prediction Studio and Research Report. Prediction Studio loads the two packaged seed-42 classifiers. The Research Report selector includes separate training, validation and test reports. Missing weights disable upload inference visibly; predictions are never filled with random outputs.
 
 ## Private dataset setup
 
@@ -59,7 +81,7 @@ python -m scripts.validate_dataset --data data/raw
 python -m scripts.verify_results
 ```
 
-The audited 48 images all have original dimensions 2835×3543. Exact duplicates: zero. Perceptual matches are review candidates; seven cross-subject pairs were visually reviewed as distinct photographs and their SHA256 pairs are recorded in `results/duplicate_review.json`. Modified input hashes invalidate that review. Real photographs, checkpoints, generated samples and private example grids are ignored by Git. No public image-distribution permission is assumed.
+The audited 48 images all have original dimensions 2835×3543. Exact duplicates: zero. Perceptual matches are review candidates; seven cross-subject pairs were visually reviewed as distinct photographs and their SHA256 pairs are recorded in `results/duplicate_review.json`. Modified input hashes invalidate that review. Real photographs, generator/other checkpoints, generated samples and private example grids are ignored by Git. The only weight exceptions are the two packaged public classifiers. No public source-image distribution permission is assumed.
 
 ## Reproduce the corrected experiment
 
@@ -81,7 +103,7 @@ The CNN has three conv/BN/ReLU/max-pool blocks, channels 16/32/64; dense 4096→
 
 ## Inference and local face display
 
-Set `PRML_CHECKPOINT_DIR` on the server to the directory containing `fold_0/cnn.pt`, `fold_0/gan.pt`, etc. The local default is `results/runs/corrected`. The app uses a fixed fold selected explicitly for demonstration, not the fold with the best test score. Fold models are not validated general-purpose production models. Do not use an ensemble of folds to claim unbiased predictions on training identities: other folds have trained on that identity.
+The default public models are `deployment/cnn.pt` and `deployment/gan.pt`, with hashes in `deployment/manifest.json`. They are selected by seed-42 holdout validation CE, never by test performance. Set `PRML_CHECKPOINT_DIR` to override them locally. A flat directory with `cnn.pt`/`gan.pt` works directly; a directory containing `fold_0/cnn.pt`, etc., exposes the local LOSO fold selector. Do not use a fold ensemble to claim unbiased predictions on training identities: other folds trained on that identity.
 
 ```bash
 python -m prml.predict --checkpoint results/runs/corrected/fold_0/cnn.pt --image private/example.jpg
@@ -106,10 +128,10 @@ The corrected run changes the fake-label D loss, selection criterion, seed reset
 1. Connect an authorized GitHub account at [Streamlit Community Cloud](https://share.streamlit.io/).
 2. Create an app for `Ahmdullah16/PRML-Assignment`, using the reviewed implementation branch or merged `main`.
 3. Set main file path **`app/streamlit_app.py`** and Python **3.12** in advanced settings.
-4. Cloud uses `app/requirements.txt`, a display-only environment without PyTorch, CUDA, training or plotting dependencies. The theme comes from the repository root. No data download or training is required. Python **3.12** is required for these pins; the cloud default may be newer.
-5. Verify all seven pages. Without privately provisioned approved weights, Prediction Studio must show its unavailable state.
+4. Cloud uses `app/requirements.txt` with **CPU-only PyTorch** from the official CPU index, plus display dependencies. No CUDA packages, dataset download or training job is required. Python **3.12** is required for these pins; the cloud default may be newer.
+5. Verify all seven pages and both public classifiers. If packaged checkpoints are missing, Prediction Studio must show its unavailable state.
 
-Weights are not automatically uploaded or fetched. For an approved private deployment, also install CPU PyTorch from the official CPU index, provision weights out of band and set `PRML_CHECKPOINT_DIR`. Inference imports are lazy so the results-only app does not need PyTorch. Do not put credentials in code or expose the dataset via app storage. Consult the [official deployment guide](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app). No live public deployment is claimed unless the delivery log records a verified URL.
+The packaged classifiers ship with the repository; weights are not downloaded from an untrusted upload or arbitrary URL. Inference imports are lazy and loading uses `weights_only=True` with strict class/size/state checks. No generator or source images are fetched. Do not put credentials in code or expose the dataset via app storage. Consult the [official deployment guide](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app). Current verification status is recorded in the delivery log.
 
 ## Verification and report
 

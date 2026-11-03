@@ -1,0 +1,1969 @@
+{
+  "experiment": "seed42-subject-holdout-v1",
+  "archive_sha256": "e9eb78dfe556e6720e4d1463a1c2eb981a81de3b1e38f939165ef5e7fea5cd9e",
+  "config": {
+    "seed": 42,
+    "cnn_epochs": 25,
+    "gan_epochs": 40,
+    "batch_size": 8,
+    "lr": 0.0002,
+    "device": "cpu",
+    "selection": "minimum validation classification cross-entropy",
+    "requested_ratio": "50:30:20"
+  },
+  "split_manifest": {
+    "seed": 42,
+    "method": "NumPy default_rng seed42; shuffled subject holdout; largest-remainder rounding",
+    "requested_ratios": {
+      "train": 0.5,
+      "validation": 0.3,
+      "test": 0.2
+    },
+    "shuffled_subject_order": [
+      "116",
+      "079",
+      "168",
+      "140",
+      "066",
+      "004"
+    ],
+    "partitions": {
+      "train": {
+        "subjects": [
+          "116",
+          "079",
+          "168"
+        ],
+        "images": 24,
+        "actual_ratio": 0.5,
+        "class_counts": {
+          "happiness": 6,
+          "neutral": 6,
+          "sadness": 6,
+          "fear": 6
+        },
+        "records": [
+          {
+            "filename": "116_m_m_h_a.jpg",
+            "subject": "116",
+            "class": "happiness",
+            "label": 1,
+            "sha256": "714137177c1549e18ac3b7d4e444bbcc714dbdbfdfdcaf27ffde6ddf404fd94e"
+          },
+          {
+            "filename": "168_m_f_n_a.jpg",
+            "subject": "168",
+            "class": "neutral",
+            "label": 2,
+            "sha256": "850103c197ef354db305444c8082a962f6df1146de3c6a21257a1e4e0712383f"
+          },
+          {
+            "filename": "079_o_f_h_b.jpg",
+            "subject": "079",
+            "class": "happiness",
+            "label": 1,
+            "sha256": "402031883854694cba66972cc0b764e339942add92df4251130e2596d92e4643"
+          },
+          {
+            "filename": "168_m_f_s_a.jpg",
+            "subject": "168",
+            "class": "sadness",
+            "label": 0,
+            "sha256": "9daa201cb8b14a6923d62b2895443a26954054e822fe75021898a26ba2f042a0"
+          },
+          {
+            "filename": "116_m_m_s_a.jpg",
+            "subject": "116",
+            "class": "sadness",
+            "label": 0,
+            "sha256": "4dd1abe9ee1857dc4900ff31c8630d394885da7298ea0ef13f0aced529eec1f5"
+          },
+          {
+            "filename": "168_m_f_f_a.jpg",
+            "subject": "168",
+            "class": "fear",
+            "label": 3,
+            "sha256": "5d43e4c59d642a997e0f8a3d8f291bd6457857d8b0ea1315dbda6e0bec89f4c7"
+          },
+          {
+            "filename": "168_m_f_s_b.jpg",
+            "subject": "168",
+            "class": "sadness",
+            "label": 0,
+            "sha256": "bd7478ab751e029b25f267c537f78f3521fdc09b8d26e8f8acdc7aa8a69a800f"
+          },
+          {
+            "filename": "116_m_m_f_b.jpg",
+            "subject": "116",
+            "class": "fear",
+            "label": 3,
+            "sha256": "d3c3afc0a17ca65f46f088bf7f84cd6109cea142336ee6b9a06c306b62822dab"
+          },
+          {
+            "filename": "079_o_f_s_b.jpg",
+            "subject": "079",
+            "class": "sadness",
+            "label": 0,
+            "sha256": "a0c3e76c907ba7bffbc4b4371fd6a6cbe72e7700f04988ec45680bde323b3bb6"
+          },
+          {
+            "filename": "168_m_f_h_a.jpg",
+            "subject": "168",
+            "class": "happiness",
+            "label": 1,
+            "sha256": "93bbb04fc70475a8537bb528b1a4ef205d1be126e0261c0e4d8191bb8a30093f"
+          },
+          {
+            "filename": "079_o_f_f_b.jpg",
+            "subject": "079",
+            "class": "fear",
+            "label": 3,
+            "sha256": "6e1fa7b67b4491242c5b2ad88b09d4d1f20f9da4d77bec9d6547bfe4504fc6cd"
+          },
+          {
+            "filename": "116_m_m_f_a.jpg",
+            "subject": "116",
+            "class": "fear",
+            "label": 3,
+            "sha256": "9d92639474ea4ea8875fd9c04fb1f40fb0da3cfc736e2430061dd38c1ded1d86"
+          },
+          {
+            "filename": "116_m_m_h_b.jpg",
+            "subject": "116",
+            "class": "happiness",
+            "label": 1,
+            "sha256": "836d42fedaf0ed996c1dd67382b51ea9faaca5383391af625c13e1c833d9bb58"
+          },
+          {
+            "filename": "079_o_f_h_a.jpg",
+            "subject": "079",
+            "class": "happiness",
+            "label": 1,
+            "sha256": "17d90a0f0a3878d1cf94c5b511cde25dbea2558e28885308c69805706d3ed84c"
+          },
+          {
+            "filename": "079_o_f_f_a.jpg",
+            "subject": "079",
+            "class": "fear",
+            "label": 3,
+            "sha256": "11c79fa420af50f9f24a06b243d240f735c32c53ba7006df3fcfcf0549dac562"
+          },
+          {
+            "filename": "116_m_m_s_b.jpg",
+            "subject": "116",
+            "class": "sadness",
+            "label": 0,
+            "sha256": "c4fdd7e7d016366461eaedbbb10864466451405868bb79f3786d1f251e17981c"
+          },
+          {
+            "filename": "079_o_f_s_a.jpg",
+            "subject": "079",
+            "class": "sadness",
+            "label": 0,
+            "sha256": "869c925bc7ccd790cf7bd07ae966135ffd93f70e15c5c41732ce6b0fb955a328"
+          },
+          {
+            "filename": "116_m_m_n_b.jpg",
+            "subject": "116",
+            "class": "neutral",
+            "label": 2,
+            "sha256": "6826669d243d3f44f4072f59ed5d324ef7f43958d85ad8529f4e88a2a9428486"
+          },
+          {
+            "filename": "168_m_f_n_b.jpg",
+            "subject": "168",
+            "class": "neutral",
+            "label": 2,
+            "sha256": "5b09ac97266c04af5f25f87ca2debd573f88d58ab9e837f0743be709e71cad0e"
+          },
+          {
+            "filename": "168_m_f_f_b.jpg",
+            "subject": "168",
+            "class": "fear",
+            "label": 3,
+            "sha256": "b7e328f639b49952bed08000238a9c6e04940544b9972e65f0602bf19afc3a73"
+          },
+          {
+            "filename": "079_o_f_n_a.jpg",
+            "subject": "079",
+            "class": "neutral",
+            "label": 2,
+            "sha256": "6028cacd613fd9cdb50eb7c7a9be90717e7eb961bc851dc94ea7b8b14245b787"
+          },
+          {
+            "filename": "168_m_f_h_b.jpg",
+            "subject": "168",
+            "class": "happiness",
+            "label": 1,
+            "sha256": "8fc3bcbc533e547d64b7d985687442d769c9bfeebcffc63d5428882d6c82d65d"
+          },
+          {
+            "filename": "116_m_m_n_a.jpg",
+            "subject": "116",
+            "class": "neutral",
+            "label": 2,
+            "sha256": "8a5849478d8d81ed4819f22175edb3cbd412de43d4592a32da6fe2c4c460e03d"
+          },
+          {
+            "filename": "079_o_f_n_b.jpg",
+            "subject": "079",
+            "class": "neutral",
+            "label": 2,
+            "sha256": "7312472d2860e141a6c213de0a5c6c583774a57f496d98928c454db0e6619f87"
+          }
+        ]
+      },
+      "validation": {
+        "subjects": [
+          "140",
+          "066"
+        ],
+        "images": 16,
+        "actual_ratio": 0.3333333333333333,
+        "class_counts": {
+          "neutral": 4,
+          "sadness": 4,
+          "happiness": 4,
+          "fear": 4
+        },
+        "records": [
+          {
+            "filename": "066_y_m_n_b.jpg",
+            "subject": "066",
+            "class": "neutral",
+            "label": 2,
+            "sha256": "328cb5787c9b281acc534331c6afd11ade3c0a653541367e864dc4240e0ecf76"
+          },
+          {
+            "filename": "140_y_f_s_a.jpg",
+            "subject": "140",
+            "class": "sadness",
+            "label": 0,
+            "sha256": "2b8404cc85826703ee49cd5f8870d350a38407fad2e3514c31311b05f8750844"
+          },
+          {
+            "filename": "140_y_f_h_a.jpg",
+            "subject": "140",
+            "class": "happiness",
+            "label": 1,
+            "sha256": "e4504b91a80ff87c67322403c0c058b93eb145c572410eceb23551395c974b0a"
+          },
+          {
+            "filename": "140_y_f_n_a.jpg",
+            "subject": "140",
+            "class": "neutral",
+            "label": 2,
+            "sha256": "72e1d6d811374b613a28e2f11113b09c2030b5167c3245f50c00aac64caf69cd"
+          },
+          {
+            "filename": "066_y_m_s_b.jpg",
+            "subject": "066",
+            "class": "sadness",
+            "label": 0,
+            "sha256": "20e5d93e674226609fdd7dae22ab3159f11c6f3fc0210b52ff4c743c4427a408"
+          },
+          {
+            "filename": "066_y_m_h_a.jpg",
+            "subject": "066",
+            "class": "happiness",
+            "label": 1,
+            "sha256": "99d1d4a5bf729cb762e67db659d39734c80a4b7f6b858ad40654283da9628c74"
+          },
+          {
+            "filename": "066_y_m_n_a.jpg",
+            "subject": "066",
+            "class": "neutral",
+            "label": 2,
+            "sha256": "a38591617d7a2afa61e433a52bd331a98acfbe64bb985f412fcc486b054a078d"
+          },
+          {
+            "filename": "140_y_f_n_b.jpg",
+            "subject": "140",
+            "class": "neutral",
+            "label": 2,
+            "sha256": "53a164b6353eb8635d3266473cb133003a462547550e46ad50375f731ae466c6"
+          },
+          {
+            "filename": "140_y_f_h_b.jpg",
+            "subject": "140",
+            "class": "happiness",
+            "label": 1,
+            "sha256": "fa10ebc9dc459ab1f7f78eb0fcbe1bc14be847dd587f1414477a8847e865e0e4"
+          },
+          {
+            "filename": "140_y_f_f_a.jpg",
+            "subject": "140",
+            "class": "fear",
+            "label": 3,
+            "sha256": "426383220080a65971b746cc3ad997c4eac787e49a708f78d01034d1b6ccb1d7"
+          },
+          {
+            "filename": "066_y_m_h_b.jpg",
+            "subject": "066",
+            "class": "happiness",
+            "label": 1,
+            "sha256": "059b4e9f492cc571e0ba63e5559107d1ad56e93217ea7323e3ebcde7d78aa868"
+          },
+          {
+            "filename": "066_y_m_f_b.jpg",
+            "subject": "066",
+            "class": "fear",
+            "label": 3,
+            "sha256": "b30876bb30e9043ae9f7fc7ba40323aa118010fc812b628b391461499220883e"
+          },
+          {
+            "filename": "066_y_m_f_a.jpg",
+            "subject": "066",
+            "class": "fear",
+            "label": 3,
+            "sha256": "748532182959683451b836b061558c09798f5ee6eb46b1d2b2a9324cc391de33"
+          },
+          {
+            "filename": "066_y_m_s_a.jpg",
+            "subject": "066",
+            "class": "sadness",
+            "label": 0,
+            "sha256": "040443c347214d86bfa40a415db4ece33b7fdbcb54e0a3c887cfad7bbdab990e"
+          },
+          {
+            "filename": "140_y_f_f_b.jpg",
+            "subject": "140",
+            "class": "fear",
+            "label": 3,
+            "sha256": "0bbffae702a2b87e254e7bfa55d58bf4f363457cc25e14d0c9ce29228b8df48b"
+          },
+          {
+            "filename": "140_y_f_s_b.jpg",
+            "subject": "140",
+            "class": "sadness",
+            "label": 0,
+            "sha256": "6e32de84e7ab4c6eed5a75b88b1164e0c1a455aa4c4e4b24f687f4c7075a0712"
+          }
+        ]
+      },
+      "test": {
+        "subjects": [
+          "004"
+        ],
+        "images": 8,
+        "actual_ratio": 0.16666666666666666,
+        "class_counts": {
+          "sadness": 2,
+          "happiness": 2,
+          "neutral": 2,
+          "fear": 2
+        },
+        "records": [
+          {
+            "filename": "004_o_m_s_a.jpg",
+            "subject": "004",
+            "class": "sadness",
+            "label": 0,
+            "sha256": "06e9ca9e1da78bfed383d72dccad40b5cc7cd042da11607e1260ba32f3dd5f91"
+          },
+          {
+            "filename": "004_o_m_s_b.jpg",
+            "subject": "004",
+            "class": "sadness",
+            "label": 0,
+            "sha256": "3e061ccccf1a43f45dbc7f44edafb03be5d3f639099548301aad95d4f9f3017c"
+          },
+          {
+            "filename": "004_o_m_h_a.jpg",
+            "subject": "004",
+            "class": "happiness",
+            "label": 1,
+            "sha256": "59e6f83d9d4647be92760b81e3ee63d02a451ad5ad12c5a5477753a5a958e053"
+          },
+          {
+            "filename": "004_o_m_n_b.jpg",
+            "subject": "004",
+            "class": "neutral",
+            "label": 2,
+            "sha256": "f06458db285930b841ac40bc2f329e12534a51c6aa8feaa10102fee7abf1530d"
+          },
+          {
+            "filename": "004_o_m_f_a.jpg",
+            "subject": "004",
+            "class": "fear",
+            "label": 3,
+            "sha256": "d19d0d63dcf6b154c45e71036a54adf6752cf744fc89d9a771be29ec5befbdb0"
+          },
+          {
+            "filename": "004_o_m_n_a.jpg",
+            "subject": "004",
+            "class": "neutral",
+            "label": 2,
+            "sha256": "55e732ab8e1b60d97f51524f837cd3426e60bf6cf07ae622038f8b3090972caa"
+          },
+          {
+            "filename": "004_o_m_f_b.jpg",
+            "subject": "004",
+            "class": "fear",
+            "label": 3,
+            "sha256": "36240ccb9dd95dc48f0d263b242f3d36ffa4178126f9938ce6b395a4af7942a5"
+          },
+          {
+            "filename": "004_o_m_h_b.jpg",
+            "subject": "004",
+            "class": "happiness",
+            "label": 1,
+            "sha256": "643549d08886b6520bc2f1f3d5a97e2ccfcb920ed17f1c24fec2855c3adb6825"
+          }
+        ]
+      }
+    }
+  },
+  "models": {
+    "cnn": {
+      "best_epoch": 25,
+      "training_seconds": 1.729340999998385,
+      "classifier_parameters": 286276,
+      "generator_parameters": 0,
+      "partitions": {
+        "train": {
+          "accuracy": 1.0,
+          "balanced_accuracy": 1.0,
+          "macro_precision": 1.0,
+          "macro_recall": 1.0,
+          "macro_f1": 1.0,
+          "precision_by_class": {
+            "sadness": 1.0,
+            "happiness": 1.0,
+            "neutral": 1.0,
+            "fear": 1.0
+          },
+          "recall_by_class": {
+            "sadness": 1.0,
+            "happiness": 1.0,
+            "neutral": 1.0,
+            "fear": 1.0
+          },
+          "f1_by_class": {
+            "sadness": 1.0,
+            "happiness": 1.0,
+            "neutral": 1.0,
+            "fear": 1.0
+          },
+          "confusion_matrix": [
+            [
+              6,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              6,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              6,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              6
+            ]
+          ],
+          "labels": [
+            "sadness",
+            "happiness",
+            "neutral",
+            "fear"
+          ],
+          "n": 24,
+          "loss": 0.4215601682662964,
+          "predictions": [
+            {
+              "filename": "116_m_m_h_a.jpg",
+              "subject": "116",
+              "true": "happiness",
+              "predicted": "happiness",
+              "probabilities": [
+                0.23053348064422607,
+                0.7025728225708008,
+                0.011694775894284248,
+                0.05519885942339897
+              ]
+            },
+            {
+              "filename": "168_m_f_n_a.jpg",
+              "subject": "168",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.13089801371097565,
+                0.08238741755485535,
+                0.6794614791870117,
+                0.10725311189889908
+              ]
+            },
+            {
+              "filename": "079_o_f_h_b.jpg",
+              "subject": "079",
+              "true": "happiness",
+              "predicted": "happiness",
+              "probabilities": [
+                0.10354772955179214,
+                0.8132216334342957,
+                0.025087526068091393,
+                0.05814305320382118
+              ]
+            },
+            {
+              "filename": "168_m_f_s_a.jpg",
+              "subject": "168",
+              "true": "sadness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.5829671621322632,
+                0.227573424577713,
+                0.055007465183734894,
+                0.13445204496383667
+              ]
+            },
+            {
+              "filename": "116_m_m_s_a.jpg",
+              "subject": "116",
+              "true": "sadness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.49439629912376404,
+                0.18233788013458252,
+                0.14367294311523438,
+                0.17959284782409668
+              ]
+            },
+            {
+              "filename": "168_m_f_f_a.jpg",
+              "subject": "168",
+              "true": "fear",
+              "predicted": "fear",
+              "probabilities": [
+                0.16381187736988068,
+                0.10311796516180038,
+                0.0895618125796318,
+                0.6435083150863647
+              ]
+            },
+            {
+              "filename": "168_m_f_s_b.jpg",
+              "subject": "168",
+              "true": "sadness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.5562623143196106,
+                0.22695507109165192,
+                0.08766563981771469,
+                0.12911692261695862
+              ]
+            },
+            {
+              "filename": "116_m_m_f_b.jpg",
+              "subject": "116",
+              "true": "fear",
+              "predicted": "fear",
+              "probabilities": [
+                0.09739824384450912,
+                0.05066828429698944,
+                0.1075873002409935,
+                0.7443462014198303
+              ]
+            },
+            {
+              "filename": "079_o_f_s_b.jpg",
+              "subject": "079",
+              "true": "sadness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.6200463771820068,
+                0.06474414467811584,
+                0.04062468931078911,
+                0.2745848298072815
+              ]
+            },
+            {
+              "filename": "168_m_f_h_a.jpg",
+              "subject": "168",
+              "true": "happiness",
+              "predicted": "happiness",
+              "probabilities": [
+                0.27346980571746826,
+                0.5907937288284302,
+                0.058579232543706894,
+                0.07715728878974915
+              ]
+            },
+            {
+              "filename": "079_o_f_f_b.jpg",
+              "subject": "079",
+              "true": "fear",
+              "predicted": "fear",
+              "probabilities": [
+                0.1678675413131714,
+                0.04560944810509682,
+                0.052058011293411255,
+                0.7344650030136108
+              ]
+            },
+            {
+              "filename": "116_m_m_f_a.jpg",
+              "subject": "116",
+              "true": "fear",
+              "predicted": "fear",
+              "probabilities": [
+                0.13794229924678802,
+                0.0876527652144432,
+                0.09688061475753784,
+                0.6775243282318115
+              ]
+            },
+            {
+              "filename": "116_m_m_h_b.jpg",
+              "subject": "116",
+              "true": "happiness",
+              "predicted": "happiness",
+              "probabilities": [
+                0.27270033955574036,
+                0.5345971584320068,
+                0.07565727829933167,
+                0.11704522371292114
+              ]
+            },
+            {
+              "filename": "079_o_f_h_a.jpg",
+              "subject": "079",
+              "true": "happiness",
+              "predicted": "happiness",
+              "probabilities": [
+                0.12205211073160172,
+                0.7137534022331238,
+                0.08600744605064392,
+                0.07818713039159775
+              ]
+            },
+            {
+              "filename": "079_o_f_f_a.jpg",
+              "subject": "079",
+              "true": "fear",
+              "predicted": "fear",
+              "probabilities": [
+                0.11547727137804031,
+                0.03585648536682129,
+                0.050865236669778824,
+                0.7978010177612305
+              ]
+            },
+            {
+              "filename": "116_m_m_s_b.jpg",
+              "subject": "116",
+              "true": "sadness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.5206770896911621,
+                0.21807923913002014,
+                0.0886537954211235,
+                0.17258982360363007
+              ]
+            },
+            {
+              "filename": "079_o_f_s_a.jpg",
+              "subject": "079",
+              "true": "sadness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.6872238516807556,
+                0.0659758448600769,
+                0.03310522437095642,
+                0.21369515359401703
+              ]
+            },
+            {
+              "filename": "116_m_m_n_b.jpg",
+              "subject": "116",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.12536172568798065,
+                0.0655183419585228,
+                0.641772449016571,
+                0.16734741628170013
+              ]
+            },
+            {
+              "filename": "168_m_f_n_b.jpg",
+              "subject": "168",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.13188686966896057,
+                0.07936132699251175,
+                0.6804963946342468,
+                0.10825543105602264
+              ]
+            },
+            {
+              "filename": "168_m_f_f_b.jpg",
+              "subject": "168",
+              "true": "fear",
+              "predicted": "fear",
+              "probabilities": [
+                0.1372504085302353,
+                0.0814984068274498,
+                0.07704838365316391,
+                0.7042028307914734
+              ]
+            },
+            {
+              "filename": "079_o_f_n_a.jpg",
+              "subject": "079",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.07056070864200592,
+                0.041157107800245285,
+                0.7814450860023499,
+                0.10683707892894745
+              ]
+            },
+            {
+              "filename": "168_m_f_h_b.jpg",
+              "subject": "168",
+              "true": "happiness",
+              "predicted": "happiness",
+              "probabilities": [
+                0.29167622327804565,
+                0.5387089252471924,
+                0.06251557171344757,
+                0.1070992648601532
+              ]
+            },
+            {
+              "filename": "116_m_m_n_a.jpg",
+              "subject": "116",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.11755485832691193,
+                0.05548471957445145,
+                0.6516073942184448,
+                0.1753530204296112
+              ]
+            },
+            {
+              "filename": "079_o_f_n_b.jpg",
+              "subject": "079",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.05204860493540764,
+                0.03719070553779602,
+                0.8083901405334473,
+                0.10237053036689758
+              ]
+            }
+          ]
+        },
+        "validation": {
+          "accuracy": 0.8125,
+          "balanced_accuracy": 0.8125,
+          "macro_precision": 0.8541666666666666,
+          "macro_recall": 0.8125,
+          "macro_f1": 0.8041666666666667,
+          "precision_by_class": {
+            "sadness": 0.6666666666666666,
+            "happiness": 0.75,
+            "neutral": 1.0,
+            "fear": 1.0
+          },
+          "recall_by_class": {
+            "sadness": 1.0,
+            "happiness": 0.75,
+            "neutral": 0.5,
+            "fear": 1.0
+          },
+          "f1_by_class": {
+            "sadness": 0.8,
+            "happiness": 0.75,
+            "neutral": 0.6666666666666666,
+            "fear": 1.0
+          },
+          "confusion_matrix": [
+            [
+              4,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              3,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              4
+            ]
+          ],
+          "labels": [
+            "sadness",
+            "happiness",
+            "neutral",
+            "fear"
+          ],
+          "n": 16,
+          "loss": 1.1153573393821716,
+          "predictions": [
+            {
+              "filename": "066_y_m_n_b.jpg",
+              "subject": "066",
+              "true": "neutral",
+              "predicted": "sadness",
+              "probabilities": [
+                0.37865328788757324,
+                0.3044355511665344,
+                0.0588633194565773,
+                0.25804775953292847
+              ]
+            },
+            {
+              "filename": "140_y_f_s_a.jpg",
+              "subject": "140",
+              "true": "sadness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.3798750340938568,
+                0.31929075717926025,
+                0.12254761159420013,
+                0.1782865822315216
+              ]
+            },
+            {
+              "filename": "140_y_f_h_a.jpg",
+              "subject": "140",
+              "true": "happiness",
+              "predicted": "happiness",
+              "probabilities": [
+                0.40377920866012573,
+                0.4064711332321167,
+                0.040374789386987686,
+                0.14937491714954376
+              ]
+            },
+            {
+              "filename": "140_y_f_n_a.jpg",
+              "subject": "140",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.1785753071308136,
+                0.09192150086164474,
+                0.4148589074611664,
+                0.3146442472934723
+              ]
+            },
+            {
+              "filename": "066_y_m_s_b.jpg",
+              "subject": "066",
+              "true": "sadness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.38229119777679443,
+                0.2781604528427124,
+                0.08116879314184189,
+                0.25837957859039307
+              ]
+            },
+            {
+              "filename": "066_y_m_h_a.jpg",
+              "subject": "066",
+              "true": "happiness",
+              "predicted": "happiness",
+              "probabilities": [
+                0.29436346888542175,
+                0.4689541757106781,
+                0.0892203077673912,
+                0.14746209979057312
+              ]
+            },
+            {
+              "filename": "066_y_m_n_a.jpg",
+              "subject": "066",
+              "true": "neutral",
+              "predicted": "happiness",
+              "probabilities": [
+                0.36844977736473083,
+                0.3714570105075836,
+                0.06936399638652802,
+                0.19072920083999634
+              ]
+            },
+            {
+              "filename": "140_y_f_n_b.jpg",
+              "subject": "140",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.1953742504119873,
+                0.1129109114408493,
+                0.3776922821998596,
+                0.31402260065078735
+              ]
+            },
+            {
+              "filename": "140_y_f_h_b.jpg",
+              "subject": "140",
+              "true": "happiness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.4220984876155853,
+                0.2794669270515442,
+                0.055196378380060196,
+                0.243238165974617
+              ]
+            },
+            {
+              "filename": "140_y_f_f_a.jpg",
+              "subject": "140",
+              "true": "fear",
+              "predicted": "fear",
+              "probabilities": [
+                0.32434165477752686,
+                0.12420693784952164,
+                0.07772410660982132,
+                0.4737273156642914
+              ]
+            },
+            {
+              "filename": "066_y_m_h_b.jpg",
+              "subject": "066",
+              "true": "happiness",
+              "predicted": "happiness",
+              "probabilities": [
+                0.2813357710838318,
+                0.5482603311538696,
+                0.07475531846284866,
+                0.09564859420061111
+              ]
+            },
+            {
+              "filename": "066_y_m_f_b.jpg",
+              "subject": "066",
+              "true": "fear",
+              "predicted": "fear",
+              "probabilities": [
+                0.26310572028160095,
+                0.19615867733955383,
+                0.16077888011932373,
+                0.37995678186416626
+              ]
+            },
+            {
+              "filename": "066_y_m_f_a.jpg",
+              "subject": "066",
+              "true": "fear",
+              "predicted": "fear",
+              "probabilities": [
+                0.26325005292892456,
+                0.17810410261154175,
+                0.1147671490907669,
+                0.4438786506652832
+              ]
+            },
+            {
+              "filename": "066_y_m_s_a.jpg",
+              "subject": "066",
+              "true": "sadness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.39894741773605347,
+                0.21502387523651123,
+                0.06300073117017746,
+                0.3230280578136444
+              ]
+            },
+            {
+              "filename": "140_y_f_f_b.jpg",
+              "subject": "140",
+              "true": "fear",
+              "predicted": "fear",
+              "probabilities": [
+                0.28928253054618835,
+                0.14280331134796143,
+                0.08757840096950531,
+                0.48033571243286133
+              ]
+            },
+            {
+              "filename": "140_y_f_s_b.jpg",
+              "subject": "140",
+              "true": "sadness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.4277462661266327,
+                0.23714159429073334,
+                0.1505410075187683,
+                0.18457114696502686
+              ]
+            }
+          ]
+        },
+        "test": {
+          "accuracy": 0.375,
+          "balanced_accuracy": 0.375,
+          "macro_precision": 0.18333333333333335,
+          "macro_recall": 0.375,
+          "macro_f1": 0.24285714285714288,
+          "precision_by_class": {
+            "sadness": 0.0,
+            "happiness": 0.4,
+            "neutral": 0.0,
+            "fear": 0.3333333333333333
+          },
+          "recall_by_class": {
+            "sadness": 0.0,
+            "happiness": 1.0,
+            "neutral": 0.0,
+            "fear": 0.5
+          },
+          "f1_by_class": {
+            "sadness": 0.0,
+            "happiness": 0.5714285714285715,
+            "neutral": 0.0,
+            "fear": 0.4
+          },
+          "confusion_matrix": [
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "labels": [
+            "sadness",
+            "happiness",
+            "neutral",
+            "fear"
+          ],
+          "n": 8,
+          "loss": 1.1796209812164307,
+          "predictions": [
+            {
+              "filename": "004_o_m_s_a.jpg",
+              "subject": "004",
+              "true": "sadness",
+              "predicted": "happiness",
+              "probabilities": [
+                0.3244856297969818,
+                0.40406957268714905,
+                0.033292580395936966,
+                0.23815222084522247
+              ]
+            },
+            {
+              "filename": "004_o_m_s_b.jpg",
+              "subject": "004",
+              "true": "sadness",
+              "predicted": "happiness",
+              "probabilities": [
+                0.27187982201576233,
+                0.433590292930603,
+                0.02146920934319496,
+                0.2730606496334076
+              ]
+            },
+            {
+              "filename": "004_o_m_h_a.jpg",
+              "subject": "004",
+              "true": "happiness",
+              "predicted": "happiness",
+              "probabilities": [
+                0.22532859444618225,
+                0.5513266324996948,
+                0.017587583512067795,
+                0.20575709640979767
+              ]
+            },
+            {
+              "filename": "004_o_m_n_b.jpg",
+              "subject": "004",
+              "true": "neutral",
+              "predicted": "fear",
+              "probabilities": [
+                0.23629549145698547,
+                0.20926281809806824,
+                0.09686393290758133,
+                0.4575778543949127
+              ]
+            },
+            {
+              "filename": "004_o_m_f_a.jpg",
+              "subject": "004",
+              "true": "fear",
+              "predicted": "fear",
+              "probabilities": [
+                0.18145781755447388,
+                0.20743951201438904,
+                0.030797235667705536,
+                0.5803053975105286
+              ]
+            },
+            {
+              "filename": "004_o_m_n_a.jpg",
+              "subject": "004",
+              "true": "neutral",
+              "predicted": "fear",
+              "probabilities": [
+                0.20556865632534027,
+                0.1263001263141632,
+                0.1756485253572464,
+                0.4924827218055725
+              ]
+            },
+            {
+              "filename": "004_o_m_f_b.jpg",
+              "subject": "004",
+              "true": "fear",
+              "predicted": "happiness",
+              "probabilities": [
+                0.22026866674423218,
+                0.3899080455303192,
+                0.016738267615437508,
+                0.373085081577301
+              ]
+            },
+            {
+              "filename": "004_o_m_h_b.jpg",
+              "subject": "004",
+              "true": "happiness",
+              "predicted": "happiness",
+              "probabilities": [
+                0.2183864414691925,
+                0.4449634253978729,
+                0.05323293060064316,
+                0.2834172248840332
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "gan": {
+      "best_epoch": 8,
+      "training_seconds": 7.1126396999752615,
+      "classifier_parameters": 710629,
+      "generator_parameters": 1022179,
+      "partitions": {
+        "train": {
+          "accuracy": 0.25,
+          "balanced_accuracy": 0.25,
+          "macro_precision": 0.0625,
+          "macro_recall": 0.25,
+          "macro_f1": 0.1,
+          "precision_by_class": {
+            "sadness": 0.0,
+            "happiness": 0.0,
+            "neutral": 0.25,
+            "fear": 0.0
+          },
+          "recall_by_class": {
+            "sadness": 0.0,
+            "happiness": 0.0,
+            "neutral": 1.0,
+            "fear": 0.0
+          },
+          "f1_by_class": {
+            "sadness": 0.0,
+            "happiness": 0.0,
+            "neutral": 0.4,
+            "fear": 0.0
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              6,
+              0
+            ],
+            [
+              0,
+              0,
+              6,
+              0
+            ],
+            [
+              0,
+              0,
+              6,
+              0
+            ],
+            [
+              0,
+              0,
+              6,
+              0
+            ]
+          ],
+          "labels": [
+            "sadness",
+            "happiness",
+            "neutral",
+            "fear"
+          ],
+          "n": 24,
+          "loss": 1.3474939266840618,
+          "predictions": [
+            {
+              "filename": "116_m_m_h_a.jpg",
+              "subject": "116",
+              "true": "happiness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.20465631783008575,
+                0.2707831561565399,
+                0.31910860538482666,
+                0.20545193552970886
+              ]
+            },
+            {
+              "filename": "168_m_f_n_a.jpg",
+              "subject": "168",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.18153873085975647,
+                0.226178839802742,
+                0.38811731338500977,
+                0.20416510105133057
+              ]
+            },
+            {
+              "filename": "079_o_f_h_b.jpg",
+              "subject": "079",
+              "true": "happiness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.19214238226413727,
+                0.26535525918006897,
+                0.3058485686779022,
+                0.23665377497673035
+              ]
+            },
+            {
+              "filename": "168_m_f_s_a.jpg",
+              "subject": "168",
+              "true": "sadness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.2011115401983261,
+                0.22854448854923248,
+                0.37211665511131287,
+                0.19822727143764496
+              ]
+            },
+            {
+              "filename": "116_m_m_s_a.jpg",
+              "subject": "116",
+              "true": "sadness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.2079765647649765,
+                0.26233571767807007,
+                0.3186681270599365,
+                0.21101951599121094
+              ]
+            },
+            {
+              "filename": "168_m_f_f_a.jpg",
+              "subject": "168",
+              "true": "fear",
+              "predicted": "neutral",
+              "probabilities": [
+                0.1907578557729721,
+                0.22578269243240356,
+                0.3538535535335541,
+                0.22960592806339264
+              ]
+            },
+            {
+              "filename": "168_m_f_s_b.jpg",
+              "subject": "168",
+              "true": "sadness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.20259921252727509,
+                0.22657190263271332,
+                0.36579906940460205,
+                0.20502980053424835
+              ]
+            },
+            {
+              "filename": "116_m_m_f_b.jpg",
+              "subject": "116",
+              "true": "fear",
+              "predicted": "neutral",
+              "probabilities": [
+                0.1901470124721527,
+                0.26560837030410767,
+                0.3250301480293274,
+                0.21921442449092865
+              ]
+            },
+            {
+              "filename": "079_o_f_s_b.jpg",
+              "subject": "079",
+              "true": "sadness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.24387677013874054,
+                0.22216090559959412,
+                0.27916809916496277,
+                0.25479426980018616
+              ]
+            },
+            {
+              "filename": "168_m_f_h_a.jpg",
+              "subject": "168",
+              "true": "happiness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.1863524168729782,
+                0.23229528963565826,
+                0.37734493613243103,
+                0.2040073573589325
+              ]
+            },
+            {
+              "filename": "079_o_f_f_b.jpg",
+              "subject": "079",
+              "true": "fear",
+              "predicted": "neutral",
+              "probabilities": [
+                0.2301010638475418,
+                0.22286270558834076,
+                0.2848040759563446,
+                0.2622321844100952
+              ]
+            },
+            {
+              "filename": "116_m_m_f_a.jpg",
+              "subject": "116",
+              "true": "fear",
+              "predicted": "neutral",
+              "probabilities": [
+                0.1946035623550415,
+                0.2676001489162445,
+                0.3173678517341614,
+                0.2204284816980362
+              ]
+            },
+            {
+              "filename": "116_m_m_h_b.jpg",
+              "subject": "116",
+              "true": "happiness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.1992119699716568,
+                0.2709071934223175,
+                0.32389992475509644,
+                0.20598085224628448
+              ]
+            },
+            {
+              "filename": "079_o_f_h_a.jpg",
+              "subject": "079",
+              "true": "happiness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.18722796440124512,
+                0.26474159955978394,
+                0.31501495838165283,
+                0.2330155074596405
+              ]
+            },
+            {
+              "filename": "079_o_f_f_a.jpg",
+              "subject": "079",
+              "true": "fear",
+              "predicted": "neutral",
+              "probabilities": [
+                0.2283087968826294,
+                0.22097736597061157,
+                0.28422626852989197,
+                0.26648756861686707
+              ]
+            },
+            {
+              "filename": "116_m_m_s_b.jpg",
+              "subject": "116",
+              "true": "sadness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.20856429636478424,
+                0.2685430645942688,
+                0.316615492105484,
+                0.20627710223197937
+              ]
+            },
+            {
+              "filename": "079_o_f_s_a.jpg",
+              "subject": "079",
+              "true": "sadness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.23912139236927032,
+                0.22716429829597473,
+                0.2788701057434082,
+                0.25484421849250793
+              ]
+            },
+            {
+              "filename": "116_m_m_n_b.jpg",
+              "subject": "116",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.18907412886619568,
+                0.2644943594932556,
+                0.3396646976470947,
+                0.20676682889461517
+              ]
+            },
+            {
+              "filename": "168_m_f_n_b.jpg",
+              "subject": "168",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.18397708237171173,
+                0.22907094657421112,
+                0.3834110498428345,
+                0.20354093611240387
+              ]
+            },
+            {
+              "filename": "168_m_f_f_b.jpg",
+              "subject": "168",
+              "true": "fear",
+              "predicted": "neutral",
+              "probabilities": [
+                0.19383849203586578,
+                0.2209988236427307,
+                0.3568662703037262,
+                0.2282964140176773
+              ]
+            },
+            {
+              "filename": "079_o_f_n_a.jpg",
+              "subject": "079",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.19207899272441864,
+                0.24199692904949188,
+                0.323461651802063,
+                0.24246245622634888
+              ]
+            },
+            {
+              "filename": "168_m_f_h_b.jpg",
+              "subject": "168",
+              "true": "happiness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.1933143436908722,
+                0.23070310056209564,
+                0.36859816312789917,
+                0.2073843628168106
+              ]
+            },
+            {
+              "filename": "116_m_m_n_a.jpg",
+              "subject": "116",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.19024793803691864,
+                0.2662419378757477,
+                0.3357388377189636,
+                0.20777130126953125
+              ]
+            },
+            {
+              "filename": "079_o_f_n_b.jpg",
+              "subject": "079",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.18782654404640198,
+                0.24287062883377075,
+                0.32598012685775757,
+                0.2433227151632309
+              ]
+            }
+          ]
+        },
+        "validation": {
+          "accuracy": 0.25,
+          "balanced_accuracy": 0.25,
+          "macro_precision": 0.125,
+          "macro_recall": 0.25,
+          "macro_f1": 0.16666666666666666,
+          "precision_by_class": {
+            "sadness": 0.25,
+            "happiness": 0.0,
+            "neutral": 0.25,
+            "fear": 0.0
+          },
+          "recall_by_class": {
+            "sadness": 0.5,
+            "happiness": 0.0,
+            "neutral": 0.5,
+            "fear": 0.0
+          },
+          "f1_by_class": {
+            "sadness": 0.3333333333333333,
+            "happiness": 0.0,
+            "neutral": 0.3333333333333333,
+            "fear": 0.0
+          },
+          "confusion_matrix": [
+            [
+              2,
+              0,
+              2,
+              0
+            ],
+            [
+              2,
+              0,
+              2,
+              0
+            ],
+            [
+              2,
+              0,
+              2,
+              0
+            ],
+            [
+              2,
+              0,
+              2,
+              0
+            ]
+          ],
+          "labels": [
+            "sadness",
+            "happiness",
+            "neutral",
+            "fear"
+          ],
+          "n": 16,
+          "loss": 1.3539990782737732,
+          "predictions": [
+            {
+              "filename": "066_y_m_n_b.jpg",
+              "subject": "066",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.22909009456634521,
+                0.25808829069137573,
+                0.31084975600242615,
+                0.20197179913520813
+              ]
+            },
+            {
+              "filename": "140_y_f_s_a.jpg",
+              "subject": "140",
+              "true": "sadness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.3335612714290619,
+                0.19698607921600342,
+                0.26417335867881775,
+                0.20527932047843933
+              ]
+            },
+            {
+              "filename": "140_y_f_h_a.jpg",
+              "subject": "140",
+              "true": "happiness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.34107524156570435,
+                0.19949235022068024,
+                0.2521042227745056,
+                0.20732809603214264
+              ]
+            },
+            {
+              "filename": "140_y_f_n_a.jpg",
+              "subject": "140",
+              "true": "neutral",
+              "predicted": "sadness",
+              "probabilities": [
+                0.29089340567588806,
+                0.20749786496162415,
+                0.2797132730484009,
+                0.22189545631408691
+              ]
+            },
+            {
+              "filename": "066_y_m_s_b.jpg",
+              "subject": "066",
+              "true": "sadness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.24745412170886993,
+                0.24550709128379822,
+                0.2909814119338989,
+                0.21605728566646576
+              ]
+            },
+            {
+              "filename": "066_y_m_h_a.jpg",
+              "subject": "066",
+              "true": "happiness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.21168705821037292,
+                0.24468408524990082,
+                0.3330262303352356,
+                0.21060264110565186
+              ]
+            },
+            {
+              "filename": "066_y_m_n_a.jpg",
+              "subject": "066",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.22783583402633667,
+                0.26066508889198303,
+                0.3178761899471283,
+                0.19362296164035797
+              ]
+            },
+            {
+              "filename": "140_y_f_n_b.jpg",
+              "subject": "140",
+              "true": "neutral",
+              "predicted": "sadness",
+              "probabilities": [
+                0.2975817322731018,
+                0.2070215791463852,
+                0.27436697483062744,
+                0.22102980315685272
+              ]
+            },
+            {
+              "filename": "140_y_f_h_b.jpg",
+              "subject": "140",
+              "true": "happiness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.35462990403175354,
+                0.19367016851902008,
+                0.24907872080802917,
+                0.2026212066411972
+              ]
+            },
+            {
+              "filename": "140_y_f_f_a.jpg",
+              "subject": "140",
+              "true": "fear",
+              "predicted": "sadness",
+              "probabilities": [
+                0.3239060044288635,
+                0.20047764480113983,
+                0.24808119237422943,
+                0.22753509879112244
+              ]
+            },
+            {
+              "filename": "066_y_m_h_b.jpg",
+              "subject": "066",
+              "true": "happiness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.20682494342327118,
+                0.24821539223194122,
+                0.33751094341278076,
+                0.20744867622852325
+              ]
+            },
+            {
+              "filename": "066_y_m_f_b.jpg",
+              "subject": "066",
+              "true": "fear",
+              "predicted": "neutral",
+              "probabilities": [
+                0.20446881651878357,
+                0.24213628470897675,
+                0.31138876080513,
+                0.24200603365898132
+              ]
+            },
+            {
+              "filename": "066_y_m_f_a.jpg",
+              "subject": "066",
+              "true": "fear",
+              "predicted": "neutral",
+              "probabilities": [
+                0.22004741430282593,
+                0.23452430963516235,
+                0.29375937581062317,
+                0.25166893005371094
+              ]
+            },
+            {
+              "filename": "066_y_m_s_a.jpg",
+              "subject": "066",
+              "true": "sadness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.24318616092205048,
+                0.22851108014583588,
+                0.2885424494743347,
+                0.2397603839635849
+              ]
+            },
+            {
+              "filename": "140_y_f_f_b.jpg",
+              "subject": "140",
+              "true": "fear",
+              "predicted": "sadness",
+              "probabilities": [
+                0.31704822182655334,
+                0.19934691488742828,
+                0.25174203515052795,
+                0.23186282813549042
+              ]
+            },
+            {
+              "filename": "140_y_f_s_b.jpg",
+              "subject": "140",
+              "true": "sadness",
+              "predicted": "sadness",
+              "probabilities": [
+                0.340117871761322,
+                0.195870041847229,
+                0.26662707328796387,
+                0.1973850131034851
+              ]
+            }
+          ]
+        },
+        "test": {
+          "accuracy": 0.25,
+          "balanced_accuracy": 0.25,
+          "macro_precision": 0.0625,
+          "macro_recall": 0.25,
+          "macro_f1": 0.1,
+          "precision_by_class": {
+            "sadness": 0.0,
+            "happiness": 0.0,
+            "neutral": 0.25,
+            "fear": 0.0
+          },
+          "recall_by_class": {
+            "sadness": 0.0,
+            "happiness": 0.0,
+            "neutral": 1.0,
+            "fear": 0.0
+          },
+          "f1_by_class": {
+            "sadness": 0.0,
+            "happiness": 0.0,
+            "neutral": 0.4,
+            "fear": 0.0
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              2,
+              0
+            ]
+          ],
+          "labels": [
+            "sadness",
+            "happiness",
+            "neutral",
+            "fear"
+          ],
+          "n": 8,
+          "loss": 1.375723123550415,
+          "predictions": [
+            {
+              "filename": "004_o_m_s_a.jpg",
+              "subject": "004",
+              "true": "sadness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.1704944372177124,
+                0.26845213770866394,
+                0.3646777272224426,
+                0.19637568295001984
+              ]
+            },
+            {
+              "filename": "004_o_m_s_b.jpg",
+              "subject": "004",
+              "true": "sadness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.16159816086292267,
+                0.2655700147151947,
+                0.3725223243236542,
+                0.20030954480171204
+              ]
+            },
+            {
+              "filename": "004_o_m_h_a.jpg",
+              "subject": "004",
+              "true": "happiness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.1702822893857956,
+                0.2725261449813843,
+                0.3462241590023041,
+                0.21096739172935486
+              ]
+            },
+            {
+              "filename": "004_o_m_n_b.jpg",
+              "subject": "004",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.1682194471359253,
+                0.26844409108161926,
+                0.36481475830078125,
+                0.19852173328399658
+              ]
+            },
+            {
+              "filename": "004_o_m_f_a.jpg",
+              "subject": "004",
+              "true": "fear",
+              "predicted": "neutral",
+              "probabilities": [
+                0.17175893485546112,
+                0.26231321692466736,
+                0.32653552293777466,
+                0.23939235508441925
+              ]
+            },
+            {
+              "filename": "004_o_m_n_a.jpg",
+              "subject": "004",
+              "true": "neutral",
+              "predicted": "neutral",
+              "probabilities": [
+                0.14815467596054077,
+                0.24871790409088135,
+                0.41969266533851624,
+                0.18343472480773926
+              ]
+            },
+            {
+              "filename": "004_o_m_f_b.jpg",
+              "subject": "004",
+              "true": "fear",
+              "predicted": "neutral",
+              "probabilities": [
+                0.1742580085992813,
+                0.2658851146697998,
+                0.3299787938594818,
+                0.22987806797027588
+              ]
+            },
+            {
+              "filename": "004_o_m_h_b.jpg",
+              "subject": "004",
+              "true": "happiness",
+              "predicted": "neutral",
+              "probabilities": [
+                0.16111697256565094,
+                0.2624715268611908,
+                0.35763224959373474,
+                0.21877914667129517
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.14.1+cpu",
+    "numpy": "2.2.6",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+    "device": "cpu",
+    "threads": 4
+  },
+  "source_sha256": {
+    "holdout.py": "0e6362d2607a2699a42d2fe6726cb3ee07c036eccee2b4cdef0740812d0557cf",
+    "train.py": "9ad1a924ab59b737b8d7966622aec52a8cc35a8f5a2af938fd35ef07d6b5598a",
+    "models.py": "b2b24424bc1c3e87e117fb85fa1070e9000ebe1e895fc3a0cef1b6e66e7130b0",
+    "data.py": "e769e83d49f6cc1b4ec1e2116d1568def7d46440a9e6d5265c77e3619d111367",
+    "metrics.py": "afaac9f956144ae14e932a640ef2e3360eb67f25c13a80528124f5547fc12d50"
+  }
+}
