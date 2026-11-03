@@ -1,4 +1,7 @@
-# Results-only cloud runtime. Private inference additionally needs trusted CPU PyTorch.
+# CPU-only public inference runtime; no CUDA packages or training at startup.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.14.1+cpu; sys_platform != "darwin"
+torch==2.14.1; sys_platform == "darwin"
 streamlit==1.51.0
 pandas==2.3.3
 numpy==2.2.6

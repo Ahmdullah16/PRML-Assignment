@@ -25,6 +25,8 @@ def get_json(path):
 
 @st.cache_resource
 def checkpoint(path, modified):
+    import torch
+    torch.set_num_threads(2)
     from prml.inference import load_checkpoint
     return load_checkpoint(path)
 
@@ -54,8 +56,11 @@ def main():
     st.sidebar.caption("Ahmdullah · M.Tech\nSignal Processing and Machine Learning\nElectronics and Electrical Engineering")
     st.caption("FOUR-CLASS FACIAL EXPRESSION RECOGNITION")
     st.title(page)
-    st.caption(f"Evidence: {selection} · subject-independent evaluation · 64 × 64 RGB")
+    st.caption("Prediction models: seed-42 subject holdout · 64 × 64 RGB" if page == "Prediction Studio" else
+               f"LOSO evidence: {selection} · subject-independent evaluation · 64 × 64 RGB")
     if page == "Overview":
+        if (ROOT / "deployment/manifest.json").exists():
+            st.info("Public prediction uses the separate seed-42 subject holdout: 24 training / 16 validation / 8 test images. Held-out test accuracy: CNN 37.5%, AC-GAN 25%. The six-fold LOSO results below are separate evidence.")
         st.markdown("## Two learning objectives. One controlled comparison.")
         st.write("Compare a supervised CNN with the auxiliary expression head of an AC-GAN discriminator. "
                  "Six people rotate through independent test folds, with a separate validation subject in every fold.")
@@ -75,6 +80,8 @@ def main():
             image_if_exists(figure_root / "dataset.png", "Audited dataset · original image statistics")
             st.write("EXIF orientation → RGB → bilinear resize to 64 × 64 → normalize to [−1, 1]. Horizontal flips occur during training only, for both methods.")
             st.write("Each fold: 32 training images / 4 subjects; 8 validation images / 1 subject; 8 test images / 1 subject.")
+            if (ROOT / "results/holdout_seed42/summary.json").exists():
+                st.write("The new seed-42 holdout uses 24 training / 16 validation / 8 test images from 3 / 2 / 1 separate subjects. Its saved subject shuffle and reports are available in Model Comparison and Research Report.")
             st.caption(f'{len(dataset["near_duplicates"])} perceptual-match candidates; exact duplicates rejected. Cross-subject candidates reviewed as distinct photographs.')
         st.info("Original photographs remain private. Public deployment includes statistics and diagrams. Authorized local viewing is enabled only by server configuration.")
         private = os.getenv("PRML_PRIVATE_DATA")
@@ -100,6 +107,14 @@ def main():
         fold = st.selectbox("Training fold", list(range(6)))
         image_if_exists(figure_root / f"fold_{fold}_{kind}_history.png", f"{selection} · fold {fold}; losses have model-specific units")
     elif page == "Model Comparison":
+        holdout = get_json(ROOT / "results/holdout_seed42/summary.json")
+        if holdout:
+            with st.expander("New seed-42 train / validation / test experiment", expanded=True):
+                st.write("Requested 50:30:20, rounded across six subjects to 24/16/8 images (50%/33.33%/16.67%). Subjects stay separate.")
+                st.dataframe(pd.DataFrame([dict(Model=kind.upper(), Partition=part, Images=m["n"],
+                    Accuracy=m["accuracy"], **{"Macro F1": m["macro_f1"], "Balanced accuracy": m["balanced_accuracy"]})
+                    for kind, model in holdout["models"].items() for part, m in model["partitions"].items()]), hide_index=True)
+                image_if_exists(ROOT / "results/holdout_seed42/figures/split_accuracy.png", "Fixed subject holdout, seed 42; separate from LOSO")
         if not result:
             st.info("Verified results unavailable.")
         else:
@@ -120,10 +135,15 @@ def main():
         st.write("Upload one cropped face image. Scores are uncalibrated softmax outputs. Uploads are processed in memory and are not written to disk by this app.")
         st.info("Predictions describe apparent expression categories, not actual emotions or mental state. These classroom models have limited measured accuracy.")
         choice = st.selectbox("Model", ["Both models", "CNN", "AC-GAN classifier"])
-        fold = st.selectbox("Fixed demonstration fold (never selected by test score)", list(range(6)))
-        checkpoint_root = Path(os.getenv("PRML_CHECKPOINT_DIR", str(ROOT / "results/runs/corrected")))
+        override = os.getenv("PRML_CHECKPOINT_DIR")
+        checkpoint_root = Path(override) if override else ROOT / "deployment"
         kinds = ("cnn", "gan") if choice == "Both models" else (("cnn",) if choice == "CNN" else ("gan",))
-        paths = {kind: checkpoint_root / f"fold_{fold}" / f"{kind}.pt" for kind in kinds}
+        if override and not (checkpoint_root / "cnn.pt").exists():
+            fold = st.selectbox("Local LOSO demonstration fold (not selected by test score)", list(range(6)))
+            checkpoint_root = checkpoint_root / f"fold_{fold}"
+        else:
+            st.caption("Public models: fixed seed-42 subject holdout; validation-selected checkpoints. CNN test accuracy 37.5%; AC-GAN test accuracy 25%. Eight test images from one subject.")
+        paths = {kind: checkpoint_root / f"{kind}.pt" for kind in kinds}
         ready = all(path.is_file() for path in paths.values())
         if not ready:
             st.warning("Prediction unavailable: trained checkpoints have not been provisioned on this server.")
@@ -147,7 +167,11 @@ def main():
             except (ValueError, OSError, RuntimeError, UnidentifiedImageError, Image.DecompressionBombError) as exc:
                 st.error(f"Unable to process image or checkpoint: {exc}")
     elif page == "Research Report":
+        report_kind = st.selectbox("Report", ["Original LOSO study", "Seed-42 experiment", "Training", "Validation", "Test"])
+        split_reports = {"Seed-42 experiment": "EXPERIMENT", "Training": "TRAIN", "Validation": "VALIDATION", "Test": "TEST"}
         report = ROOT / "reports/ASSIGNMENT_REPORT.md"
+        if report_kind in split_reports:
+            report = ROOT / "reports/seed42" / f"{split_reports[report_kind]}_REPORT.md"
         if report.exists():
             content = report.read_text(encoding="utf-8")
             st.download_button("Download research report", content, file_name=report.name, mime="text/markdown")

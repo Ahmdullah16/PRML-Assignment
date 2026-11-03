@@ -2,6 +2,8 @@ data/
 private/
 checkpoints/
 *.pt
+!deployment/cnn.pt
+!deployment/gan.pt
 *.pth
 *.zip
 *.jpg
