@@ -199,6 +199,22 @@ For a different dataset, review perceptual-match candidates and regenerate the h
     for key, value in {"FOLD_TABLE": fold_table, "CLASS_TABLE": class_table, "COST_TABLE": cost_table,
                        "TABLE": table, "CONFUSION": confusion, "CI": ci}.items():
         content = content.replace(key, value)
+    # Keep prose aligned with the selected run, including when users rerun another seed.
+    cnn, gan = metrics["cnn"]["pooled"], metrics["gan"]["pooled"]
+    n = cnn["n"]
+    cnn_count, gan_count = round(cnn["accuracy"] * n), round(gan["accuracy"] * n)
+    content = content.replace("39.58% CNN accuracy (19/48) and 33.33% AC-GAN classifier accuracy (16/48)",
+        f'{cnn["accuracy"]:.2%} CNN accuracy ({cnn_count}/{n}) and {gan["accuracy"]:.2%} AC-GAN classifier accuracy ({gan_count}/{n})')
+    content = content.replace("Pooled macro F1 is 0.3927 and 0.3288 respectively.",
+        f'Pooled macro F1 is {cnn["macro_f1"]:.4f} and {gan["macro_f1"]:.4f} respectively.')
+    content = content.replace("The corrected CNN predicts 19/48 correctly and AC-GAN 16/48.",
+        f'The corrected CNN predicts {cnn_count}/{n} correctly and AC-GAN {gan_count}/{n}.')
+    from collections import Counter
+    frequencies = Counter(f["models"]["gan"]["accuracy"] for f in folds)
+    content = content.replace("AC-GAN yields 25% accuracy in four folds and 50% in two.",
+        "AC-GAN fold accuracy frequencies: " + "; ".join(f"{value:.2%} in {count} folds" for value, count in sorted(frequencies.items())) + ".")
+    content = content.replace("a numerical accuracy advantage of three images (6.25 percentage points) over AC-GAN",
+        f'a signed accuracy difference of {cnn_count - gan_count:+d} images ({100 * (cnn["accuracy"] - gan["accuracy"]):+.2f} percentage points) relative to AC-GAN')
     Path("reports/ASSIGNMENT_REPORT.md").write_text(content, encoding="utf-8")
     print("Report generated from completed experiment")
 

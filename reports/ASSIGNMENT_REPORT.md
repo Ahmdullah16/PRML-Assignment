@@ -147,7 +147,7 @@ GAN pooled confusion matrix (rows true, columns predicted; sadness, happiness, n
 - CNN: exploratory subject-accuracy bootstrap interval [0.3125, 0.4792]; mean fold macro F1 0.2784.
 - GAN: exploratory subject-accuracy bootstrap interval [0.2500, 0.4167]; mean fold macro F1 0.1917.
 
-The corrected CNN predicts 19/48 correctly and AC-GAN 16/48. AC-GAN yields 25% accuracy in four folds and 50% in two. Inspect per-fold confusion matrices and probabilities before treating pooled nonconstant predictions as useful discrimination: a model can produce different constant classes in different folds.
+The corrected CNN predicts 19/48 correctly and AC-GAN 16/48. AC-GAN fold accuracy frequencies: 25.00% in 4 folds; 50.00% in 2 folds. Inspect per-fold confusion matrices and probabilities before treating pooled nonconstant predictions as useful discrimination: a model can produce different constant classes in different folds.
 
 Historical replay-verified accuracy is 33.33% for CNN and 25.00% for GAN; historical mean fold macro F1 is 0.2011 and 0.1000. These retain the original real-only discriminator class loss and selection rule and must not be relabeled as the corrected AC-GAN results. Original environment metadata and generator-selection pairing are missing.
 
@@ -165,7 +165,7 @@ Training time includes validation within the training function, excludes decodin
 
 ## 15. Discussion
 
-The corrected CNN has a numerical accuracy advantage of three images (6.25 percentage points) over AC-GAN. This does not prove statistical superiority or causation. A direct supervised objective may be easier to optimize with four training subjects; adversarial competition may introduce instability. These are plausible explanations, not isolated experimental findings. CNN and AC-GAN have different feature extractors, regularization and optimizer momentum. An architecture-matched discriminator-only control and repeated seeds would help separate architecture from adversarial effects.
+The corrected CNN has a signed accuracy difference of +3 images (+6.25 percentage points) relative to AC-GAN. This does not prove statistical superiority or causation. A direct supervised objective may be easier to optimize with four training subjects; adversarial competition may introduce instability. These are plausible explanations, not isolated experimental findings. CNN and AC-GAN have different feature extractors, regularization and optimizer momentum. An architecture-matched discriminator-only control and repeated seeds would help separate architecture from adversarial effects.
 
 Uniform independent guessing has expected accuracy 25% for four balanced categories. A constant predictor also achieves 25%; near-chance accuracy therefore cannot establish meaningful recognition. The historical GAN's low fold macro F1 is consistent with constant-class behavior visible in saved predictions. No realism, diversity or generative-quality claim follows from discriminator classification scores. Private synthetic grids and nearest-training-image pixel distances are diagnostic only. Pixel distance after downsampling cannot certify absence of memorization.
 

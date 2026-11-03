@@ -4,6 +4,8 @@
 
 A tested PyTorch study of **happiness, sadness, fear and neutral** using 48 original photographs from six subjects. A supervised CNN is compared with the **expression head of an AC-GAN discriminator**, using identical subject-disjoint test/validation partitions. The Streamlit research dashboard works without private images or checkpoints; prediction is enabled only when trusted weights are available locally.
 
+**[Open the verified public research dashboard](https://facial-expression.streamlit.app/)** · results-only; trained weights remain private.
+
 ![Corrected experiment comparison](results/figures/corrected/comparison.png)
 
 ## Measured evidence
@@ -104,10 +106,10 @@ The corrected run changes the fake-label D loss, selection criterion, seed reset
 1. Connect an authorized GitHub account at [Streamlit Community Cloud](https://share.streamlit.io/).
 2. Create an app for `Ahmdullah16/PRML-Assignment`, using the reviewed implementation branch or merged `main`.
 3. Set main file path **`app/streamlit_app.py`** and Python **3.12** in advanced settings.
-4. Requirements and theme are read from the repository root. Deploy the inference-only app; no data download or training is required.
+4. Cloud uses `app/requirements.txt`, a display-only environment without PyTorch, CUDA, training or plotting dependencies. The theme comes from the repository root. No data download or training is required. Python **3.12** is required for these pins; the cloud default may be newer.
 5. Verify all seven pages. Without privately provisioned approved weights, Prediction Studio must show its unavailable state.
 
-Weights are not automatically uploaded or fetched. For an approved private deployment, provision weights out of band and set `PRML_CHECKPOINT_DIR`. Do not put credentials in code or expose the dataset via app storage. Consult the [official deployment guide](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app). No live public deployment is claimed unless the delivery log records a verified URL.
+Weights are not automatically uploaded or fetched. For an approved private deployment, also install CPU PyTorch from the official CPU index, provision weights out of band and set `PRML_CHECKPOINT_DIR`. Inference imports are lazy so the results-only app does not need PyTorch. Do not put credentials in code or expose the dataset via app storage. Consult the [official deployment guide](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app). No live public deployment is claimed unless the delivery log records a verified URL.
 
 ## Verification and report
 

@@ -10,7 +10,6 @@ import pandas as pd
 from PIL import Image, UnidentifiedImageError
 import streamlit as st
 from prml import CLASSES
-from prml.inference import load_checkpoint, predict
 
 PAGES = ["Overview", "Dataset Explorer", "CNN Explorer", "GAN Explorer", "Model Comparison", "Prediction Studio", "Research Report"]
 
@@ -26,6 +25,7 @@ def get_json(path):
 
 @st.cache_resource
 def checkpoint(path, modified):
+    from prml.inference import load_checkpoint
     return load_checkpoint(path)
 
 
@@ -130,6 +130,7 @@ def main():
         uploaded = st.file_uploader("Image (PNG or JPEG)", type=["png", "jpg", "jpeg"], disabled=not ready)
         if uploaded is not None and ready:
             try:
+                from prml.inference import predict
                 raw = uploaded.getvalue()
                 with Image.open(io.BytesIO(raw)) as im:
                     im.verify()
