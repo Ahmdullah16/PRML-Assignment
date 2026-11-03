@@ -82,20 +82,55 @@ def shuffled_subject_split(rows, seed=42):
     return parts, manifest
 
 
-def prepare_dataset(archive, destination, seed=42):
+def shuffled_class_split(rows, seed=42):
+    """Shuffle each 12-image class, take 6/3/3, then independently shuffle each combined set."""
+    parts = {name: [] for name in SPLIT_NAMES}
+    class_orders = {}
+    # Separate streams make class shuffling and final partition mixing independent and reproducible.
+    streams = np.random.SeedSequence(seed).spawn(len(CLASSES) + len(SPLIT_NAMES))
+    for i, cls in enumerate(CLASSES):
+        group = sorted((r for r in rows if r["class"] == cls), key=lambda r: r["filename"])
+        if len(group) != 12:
+            raise ValueError(f"Expected exactly 12 images for {cls}; found {len(group)}")
+        np.random.default_rng(streams[i]).shuffle(group)
+        class_orders[cls] = [r["filename"] for r in group]
+        for name, subset in zip(SPLIT_NAMES, (group[:6], group[6:9], group[9:])):
+            parts[name].extend(subset)
+    for i, name in enumerate(SPLIT_NAMES):
+        np.random.default_rng(streams[len(CLASSES) + i]).shuffle(parts[name])
+    images = [{r["filename"] for r in parts[n]} for n in SPLIT_NAMES]
+    assert not (images[0] & images[1] or images[0] & images[2] or images[1] & images[2])
+    subjects = {n: {r["subject"] for r in parts[n]} for n in SPLIT_NAMES}
+    overlaps = {f"{a}_vs_{b}": sorted(subjects[a] & subjects[b])
+                for a, b in (("train", "validation"), ("train", "test"), ("validation", "test"))}
+    manifest = dict(seed=seed, method="Per-class 6/3/3 image split; independent SeedSequence(42) streams per class and final partition",
+        requested_ratios=dict(zip(SPLIT_NAMES, [.5, .25, .25])), per_class_shuffled_order=class_orders,
+        subject_independent=False, subject_overlap=overlaps,
+        partitions={name: dict(subjects=sorted(subjects[name]), images=len(part), actual_ratio=len(part) / len(rows),
+            class_counts=dict(Counter(r["class"] for r in part)),
+            records=[{k: r[k] for k in ("filename", "subject", "class", "label", "sha256")} for r in part])
+            for name, part in parts.items()})
+    return parts, manifest
+
+
+def prepare_dataset(archive, destination, seed=42, strategy="subject"):
     data = extract_dataset(archive, destination)
     rows = discover(data)
-    parts, manifest = shuffled_subject_split(rows, seed)
+    if strategy not in ("subject", "class_6_3_3"):
+        raise ValueError("Unknown split strategy")
+    parts, manifest = (shuffled_subject_split(rows, seed) if strategy == "subject" else shuffled_class_split(rows, seed))
     return rows, parts, manifest
 
 
-def run_experiment(archive, data_dir, output, review, seed=42, cnn_epochs=25, gan_epochs=40, device="cpu"):
+def run_experiment(archive, data_dir, output, review, seed=42, cnn_epochs=25, gan_epochs=40, device="cpu", strategy="subject"):
     """Reuse only a hash/config-identical completed run; otherwise execute fixed-budget training."""
     torch.set_num_threads(4)
     output = Path(output)
-    rows, parts, manifest = prepare_dataset(archive, data_dir, seed)
+    rows, parts, manifest = prepare_dataset(archive, data_dir, seed, strategy)
     config = dict(seed=seed, cnn_epochs=cnn_epochs, gan_epochs=gan_epochs, batch_size=8, lr=.0002,
                   device=device, selection="minimum validation classification cross-entropy", requested_ratio="50:30:20")
+    if strategy == "class_6_3_3":
+        config.update(requested_ratio="6/3/3 images per class (50:25:25)", split_strategy=strategy)
     archive_sha = hashlib.sha256(Path(archive).read_bytes()).hexdigest()
     summary_path = output / "summary.json"
     if summary_path.exists():
@@ -114,7 +149,8 @@ def run_experiment(archive, data_dir, output, review, seed=42, cnn_epochs=25, ga
             raise ValueError("Cross-subject perceptual match requires a hash-bound review")
     write_json(output / "split_manifest.json", manifest)
     write_json(output / "dataset.json", audited)
-    summary = dict(experiment="seed42-subject-holdout-v1", archive_sha256=archive_sha, config=config,
+    experiment = "seed42-class-6-3-3-v1" if strategy == "class_6_3_3" else "seed42-subject-holdout-v1"
+    summary = dict(experiment=experiment, archive_sha256=archive_sha, config=config,
                    split_manifest=manifest, models={}, environment=dict(python=platform.python_version(),
                      torch=str(torch.__version__), numpy=np.__version__, platform=platform.platform(),
                      cpu=platform.processor(), device=device, threads=4),
@@ -185,5 +221,6 @@ def export_experiment(run_dir, public_dir, deployment_dir):
         shutil.copyfile(run_dir / f"{kind}.pt", deployment_dir / f"{kind}.pt")
         path = deployment_dir / f"{kind}.pt"
         files[kind] = dict(file=path.name, bytes=path.stat().st_size, sha256=hashlib.sha256(path.read_bytes()).hexdigest())
-    write_json(deployment_dir / "manifest.json", dict(experiment="seed42-subject-holdout-v1", files=files,
-        note="Classifier weights for public inference, trained on the fixed training subjects; no generator or source images"))
+    summary = json.loads((run_dir / "summary.json").read_text())
+    write_json(deployment_dir / "manifest.json", dict(experiment=summary["experiment"], files=files,
+        note="Validation-selected classifier weights for public inference; no generator or source images"))

@@ -18,7 +18,9 @@ def test_deployed_classifier(kind):
     assert hashlib.sha256(path.read_bytes()).hexdigest() == manifest["files"][kind]["sha256"]
     model, metadata = load_checkpoint(path)
     assert metadata["seed"] == 42 and metadata["type"] == kind
-    assert metadata["subjects"] == {"train": ["116", "079", "168"], "validation": ["140", "066"], "test": ["004"]}
+    summary = json.loads((ROOT / "results/class_6_3_3_seed42/summary.json").read_text())
+    assert metadata["experiment"] == "seed42-class-6-3-3-v1"
+    assert metadata["subjects"] == {n: p["subjects"] for n, p in summary["split_manifest"]["partitions"].items()}
     buffer = io.BytesIO()
     Image.new("RGB", (64, 64), (128, 128, 128)).save(buffer, format="PNG")
     buffer.seek(0)
@@ -40,8 +42,8 @@ def test_public_upload_enabled(monkeypatch):
 
 def test_holdout_reports_and_executed_notebook():
     for name in ("TRAIN", "VALIDATION", "TEST", "EXPERIMENT"):
-        assert (ROOT / f"reports/seed42/{name}_REPORT.md").exists()
-    nb = json.loads((ROOT / "notebooks/PRML_Seed42_CNN_ACGAN.ipynb").read_text(encoding="utf-8"))
+        assert (ROOT / f"reports/class_6_3_3_seed42/{name}_REPORT.md").exists()
+    nb = json.loads((ROOT / "notebooks/PRML_Class_6_3_3_Seed42.ipynb").read_text(encoding="utf-8"))
     cells = [c for c in nb["cells"] if c["cell_type"] == "code"]
     assert len(cells) >= 10
     assert all(c["execution_count"] is not None for c in cells)

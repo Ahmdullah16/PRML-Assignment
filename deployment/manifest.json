@@ -1,16 +1,16 @@
 {
-  "experiment": "seed42-subject-holdout-v1",
+  "experiment": "seed42-class-6-3-3-v1",
   "files": {
     "cnn": {
       "file": "cnn.pt",
-      "bytes": 1152924,
-      "sha256": "76e76a7b7846f37661fb280a6ecde145099bc9d72743289887c47ab1c045343a"
+      "bytes": 1153052,
+      "sha256": "903423bee0bcdbe8d87c6ef8ffdaeb34ad359bb6c780509b8873a28b7c5ed952"
     },
     "gan": {
       "file": "gan.pt",
-      "bytes": 2846775,
-      "sha256": "aaf3789a0983131aacd04c26cf86a340cba5554bb33fbc42867cdb7932a450c7"
+      "bytes": 2846839,
+      "sha256": "aafe7fe87a0b3baedc96232163b9c12c9350edfff8681ff96cbd8f850e46d3b9"
     }
   },
-  "note": "Classifier weights for public inference, trained on the fixed training subjects; no generator or source images"
+  "note": "Validation-selected classifier weights for public inference; no generator or source images"
 }

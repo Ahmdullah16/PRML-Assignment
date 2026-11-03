@@ -3,7 +3,7 @@ from pathlib import Path
 import nbformat as nbf
 
 
-def main():
+def main(strategy="subject"):
     nb = nbf.v4.new_notebook()
     md, code = nbf.v4.new_markdown_cell, nbf.v4.new_code_cell
     nb.cells = [
@@ -146,13 +146,60 @@ def main():
            "3. Odena, Olah and Shlens (2017), [Conditional Image Synthesis With Auxiliary Classifier GANs](https://arxiv.org/abs/1610.09585).\n"
            "4. [Project repository](https://github.com/Ahmdullah16/PRML-Assignment).")
     ]
+    if strategy == "class_6_3_3":
+        nb.cells[0] = md("# IIT Guwahati — PRML Facial Expression Recognition\n## CNN versus AC-GAN: per-class 6/3/3 split, seed 42\n"
+            "**Ahmdullah · M.Tech, Signal Processing and Machine Learning · Electronics and Electrical Engineering**\n\n"
+            "This notebook implements the corrected request: shuffle each class's 12 images separately; select 6 for training, "
+            "3 for validation, 3 for test; then shuffle the three combined partitions separately. Original photographs and generated faces are not embedded.")
+        nb.cells[1] = md("## 1. Exact requested allocation\n| Class | Train | Validation | Test |\n|---|---:|---:|---:|\n"
+            "| Happiness | 6 | 3 | 3 |\n| Sadness | 6 | 3 | 3 |\n| Fear | 6 | 3 | 3 |\n| Neutral | 6 | 3 | 3 |\n"
+            "| **Total** | **24** | **12** | **12** |\n\n"
+            "This is **50%/25%/25%**, exactly the corrected 6/3/3 instruction. Each class is shuffled before allocation. "
+            "Combined train, validation and test image orders are then shuffled independently. Seed 42 controls every stream. "
+            "There is no image overlap, but people can appear in more than one partition. Therefore this is image-level evaluation, "
+            "not unseen-subject evaluation. The earlier subject-independent studies remain separate baselines.")
+        nb.cells[5].source = nb.cells[5].source.replace("results/runs/holdout_seed42", "results/runs/class_6_3_3_seed42").replace(
+            "results/holdout_seed42", "results/class_6_3_3_seed42").replace(
+            "prepare_dataset(DATA_ZIP, DATA_DIR, seed=42)", "prepare_dataset(DATA_ZIP, DATA_DIR, seed=42, strategy='class_6_3_3')")
+        nb.cells[8] = md("## 5. Shuffle each class, split 6/3/3, then mix each partition\n"
+            "`SeedSequence(42)` spawns four independent RNG streams for the four classes and three more streams for the combined partitions. "
+            "The exact per-class shuffled order, final partition order and subject overlap audit are saved. "
+            "Training batches additionally reshuffle each epoch. Validation/test images receive no random augmentation.")
+        nb.cells[9] = code("display(pd.DataFrame(split_manifest['per_class_shuffled_order']))\n"
+            "display(pd.DataFrame([{'partition': name, 'images': p['images'], 'share': p['actual_ratio'], **p['class_counts']}\n"
+            "                      for name, p in split_manifest['partitions'].items()]))\n"
+            "image_sets = [{r['filename'] for r in parts[name]} for name in SPLIT_NAMES]\n"
+            "assert not (image_sets[0] & image_sets[1] or image_sets[0] & image_sets[2] or image_sets[1] & image_sets[2])\n"
+            "assert len(set.union(*image_sets)) == 48\n"
+            "for name, count in zip(SPLIT_NAMES, [6, 3, 3]):\n    assert all(sum(r['class'] == cls for r in parts[name]) == count for cls in CLASSES)\n"
+            "print('No repeated images across splits; exact 6/3/3 per class verified.')\n"
+            "print('Subject overlap audit:', split_manifest['subject_overlap'])")
+        nb.cells[14].source = nb.cells[14].source.replace("gan_epochs=40, device='cpu')", "gan_epochs=40, device='cpu', strategy='class_6_3_3')")
+        nb.cells[19] = md("## 11. Separate frozen-model test report\nThe test contains **12 images, exactly 3 per class**. "
+            "Each changed prediction moves accuracy by **8.33 percentage points**. No test image enters training, augmentation or checkpoint selection. "
+            "However, shared subject identities and similar a/b photographs mean the scores cannot establish unseen-person recognition. "
+            "The test set does not choose the seed, epoch budget, learning rate or public model.")
+        nb.cells[22].source = nb.cells[22].source.replace("reports/seed42", "reports/class_6_3_3_seed42")
+        nb.cells[28] = md("## 15. Interpretation and limitations\nTraining fit, validation selection and held-out-image test performance "
+            "are reported separately. This exact class-stratified protocol allows subject overlap, which can make scores optimistic for unseen people. "
+            "The earlier LOSO results provide the separate subject-independent comparison. Uniform guessing has expected accuracy 25%; a constant "
+            "predictor also gets 25% on balanced classes. Only six people are represented, so the 48 images are not 48 independent people. "
+            "No population confidence interval or universal CNN-versus-GAN conclusion is claimed. Outputs describe apparent expression categories, "
+            "not actual emotions or mental state. A larger licensed dataset, external subjects, multiple seeds and calibration remain future work.")
+        nb.cells[29] = md("## 16. Deliverables and deployment\nSeparate reports are in `reports/class_6_3_3_seed42/`; split records, probabilities, "
+            "histories and statistical figures are in `results/class_6_3_3_seed42/`. Only the two validation-selected classifiers are packaged for "
+            "the authorized public prediction. The source ZIP, original photographs and generator remain private. The public app never trains at startup.\n\n"
+            "```bash\npython -m pytest -q\npython -m streamlit run app/streamlit_app.py\n```")
     nb.metadata = {"kernelspec": {"display_name": "Python 3 (PRML)", "language": "python", "name": "python3"},
                    "language_info": {"name": "python", "version": "3.12"}}
-    path = Path("notebooks/PRML_Seed42_CNN_ACGAN.ipynb")
+    path = Path("notebooks/PRML_Class_6_3_3_Seed42.ipynb" if strategy == "class_6_3_3" else "notebooks/PRML_Seed42_CNN_ACGAN.ipynb")
     path.parent.mkdir(parents=True, exist_ok=True)
     nbf.write(nb, path)
     print(f"Built {path}: {len(nb.cells)} cells")
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    p = argparse.ArgumentParser()
+    p.add_argument("--strategy", choices=["subject", "class_6_3_3"], default="class_6_3_3")
+    main(p.parse_args().strategy)

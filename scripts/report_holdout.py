@@ -13,6 +13,8 @@ from prml.visualization import confusion, finish
 def build_reports(root=Path("results/holdout_seed42"), report_root=Path("reports/seed42")):
     root, report_root = Path(root), Path(report_root)
     summary = json.loads((root / "summary.json").read_text())
+    image_mode = summary["experiment"] == "seed42-class-6-3-3-v1"
+    protocol = "per-class 6/3/3 image split" if image_mode else "subject holdout"
     report_root.mkdir(parents=True, exist_ok=True)
     figures = root / "figures"
     figures.mkdir(parents=True, exist_ok=True)
@@ -24,6 +26,17 @@ def build_reports(root=Path("results/holdout_seed42"), report_root=Path("reports
         "Training minibatches shuffle each epoch using a seeded PyTorch generator. Validation/test membership stays fixed; "
         "validation and test never receive random augmentation.", "",
         "| Partition | Subjects | Images | Actual share |", "|---|---|---:|---:|"]
+    if image_mode:
+        overview = ["# Seed-42 per-class 6/3/3 shuffled image experiment", "",
+            "Each of the four classes is shuffled separately, then split into exactly **6 training, 3 validation, 3 test images**. "
+            "The combined training, validation and test sets are each shuffled again using independent seed-42 streams. "
+            "Totals: **24/12/12 images (50%/25%/25%)**. This is the user's corrected image-level protocol.", "",
+            "The split uses `numpy.random.SeedSequence(42)` with one spawned stream per class and one per final partition. "
+            "Images never overlap across partitions. Training minibatches reshuffle each epoch. Validation/test membership stays fixed "
+            "and receives no random augmentation.", "",
+            "**Subject overlap is allowed by this image-level design.** The result measures held-out images, not recognition of unseen people. "
+            "The earlier LOSO and subject-holdout evidence remain separate.", "",
+            "| Partition | Subjects represented | Images | Actual share |", "|---|---|---:|---:|"]
     for split in SPLIT_NAMES:
         part = summary["split_manifest"]["partitions"][split]
         overview.append(f'| {split} | {", ".join(part["subjects"])} | {part["images"]} | {part["actual_ratio"]:.2%} |')
@@ -39,8 +52,10 @@ def build_reports(root=Path("results/holdout_seed42"), report_root=Path("reports
         overview.append(f'| {kind.upper()} | {parts["train"]["accuracy"]:.2%} | {parts["validation"]["accuracy"]:.2%} | '
                         f'{parts["test"]["accuracy"]:.2%} | {parts["test"]["macro_f1"]:.4f} | {model["best_epoch"]} |')
     overview += ["", "Training accuracy describes fit to seen images; validation metrics are used for model selection and "
-        "are not unbiased final-test estimates. The test contains one subject and eight images; one prediction changes "
-        "test accuracy by 12.5 percentage points. No population confidence interval is justified from one test identity. "
+        "are not unbiased final-test estimates. " + ("The test contains 12 images, three per class; one prediction changes accuracy "
+        "by 8.33 percentage points. Subjects overlap across splits, so image-level scores can be optimistic for unseen-person generalization. "
+        if image_mode else "The test contains one subject and eight images; one prediction changes test accuracy by 12.5 percentage points. "
+        "No population confidence interval is justified from one test identity. ") +
         "These images have appeared in the earlier study, so this is a new split experiment, not a new external test dataset.", "",
         "The CNN predicts appearance labels directly. The AC-GAN discriminator's auxiliary expression head predicts classes; "
         "the generator is not used for public recognition. Results do not measure actual emotions or mental state.", "",
@@ -49,6 +64,12 @@ def build_reports(root=Path("results/holdout_seed42"), report_root=Path("reports
         "all three partitions. The original LOSO evidence remains separate and unchanged.", "",
         "Separate reports: [training](TRAIN_REPORT.md), [validation](VALIDATION_REPORT.md), [test](TEST_REPORT.md)."]
     (report_root / "EXPERIMENT_REPORT.md").write_text("\n".join(overview), encoding="utf-8")
+    if image_mode:
+        counts = "\n\n## Exact class allocation\n\n| Class | Train | Validation | Test |\n|---|---:|---:|---:|\n"
+        counts += "\n".join(f'| {cls} | ' + " | ".join(str(summary["split_manifest"]["partitions"][s]["class_counts"][cls]) for s in SPLIT_NAMES) + " |" for cls in CLASSES)
+        counts += "\n\nSubject overlap audit:\n\n```json\n" + json.dumps(summary["split_manifest"]["subject_overlap"], indent=2) + "\n```\n"
+        with (report_root / "EXPERIMENT_REPORT.md").open("a", encoding="utf-8") as f:
+            f.write(counts)
     for split in SPLIT_NAMES:
         partition = summary["split_manifest"]["partitions"][split]
         lines = [f"# {split.title()} report — seed 42", "",
@@ -56,7 +77,8 @@ def build_reports(root=Path("results/holdout_seed42"), report_root=Path("reports
             "All scores below use the frozen validation-selected checkpoint, eval mode and no augmentation.", "",
             {"train": "These are in-sample fit metrics, not generalization estimates.",
              "validation": "These images selected the checkpoint; the scores are selection-biased and are not test performance.",
-             "test": "These are held-out-subject metrics for one identity. The split/budget were fixed before this evaluation."}[split], "",
+             "test": ("These are held-out-image metrics. Subjects can also occur in training/validation; this is not subject-independent testing. "
+                      if image_mode else "These are held-out-subject metrics for one identity. ") + "The split/budget were fixed before this evaluation."}[split], "",
             "| Metric | CNN | AC-GAN classifier |", "|---|---:|---:|"]
         for metric in ("loss", "accuracy", "balanced_accuracy", "macro_precision", "macro_recall", "macro_f1"):
             values = [summary["models"][kind]["partitions"][split][metric] for kind in ("cnn", "gan")]
@@ -78,7 +100,7 @@ def build_reports(root=Path("results/holdout_seed42"), report_root=Path("reports
         vals = [summary["models"][kind]["partitions"][split]["accuracy"] for split in SPLIT_NAMES]
         ax.bar(x + (i - .5) * .35, vals, .35, label=kind.upper())
     ax.set(xticks=x, xticklabels=["Train (seen)", "Validation (selection)", "Test (held-out)"],
-           ylabel="Accuracy (0–1)", ylim=(0, 1), title="Separate partition performance · subject split · seed 42")
+           ylabel="Accuracy (0–1)", ylim=(0, 1), title=f"Separate partition performance · {protocol} · seed 42")
     ax.legend()
     finish(fig, figures / "split_accuracy.png")
     for kind in ("cnn", "gan"):
@@ -94,7 +116,7 @@ def build_reports(root=Path("results/holdout_seed42"), report_root=Path("reports
         for ax in axes:
             ax.axvline(summary["models"][kind]["best_epoch"], ls=":", color="gray", label="Selected epoch")
             ax.legend(fontsize=8)
-        fig.suptitle(f"{kind.upper()} · shuffled subject holdout · seed 42")
+        fig.suptitle(f"{kind.upper()} · {protocol} · seed 42")
         finish(fig, figures / f"{kind}_history.png")
     return summary
 

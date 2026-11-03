@@ -8,7 +8,9 @@ if __name__ == "__main__":
     p.add_argument("--data", type=Path, default=Path("data/seed42_zip"))
     p.add_argument("--output", type=Path, default=Path("results/runs/holdout_seed42"))
     p.add_argument("--export", action="store_true")
+    p.add_argument("--strategy", choices=["subject", "class_6_3_3"], default="subject")
+    p.add_argument("--public-output", type=Path, default=Path("results/holdout_seed42"))
     a = p.parse_args()
-    run_experiment(a.zip, a.data, a.output, Path("results/duplicate_review.json"))
+    run_experiment(a.zip, a.data, a.output, Path("results/duplicate_review.json"), strategy=a.strategy)
     if a.export:
-        export_experiment(a.output, Path("results/holdout_seed42"), Path("deployment"))
+        export_experiment(a.output, a.public_output, Path("deployment"))
