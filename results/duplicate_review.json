@@ -1,0 +1,34 @@
+{
+  "method": "Visual review of all ten candidate images; distinct images; no identity relabeling",
+  "date": "2026-11-03",
+  "distinct_pairs": [
+    [
+      "17d90a0f0a3878d1cf94c5b511cde25dbea2558e28885308c69805706d3ed84c",
+      "c4fdd7e7d016366461eaedbbb10864466451405868bb79f3786d1f251e17981c"
+    ],
+    [
+      "059b4e9f492cc571e0ba63e5559107d1ad56e93217ea7323e3ebcde7d78aa868",
+      "714137177c1549e18ac3b7d4e444bbcc714dbdbfdfdcaf27ffde6ddf404fd94e"
+    ],
+    [
+      "059b4e9f492cc571e0ba63e5559107d1ad56e93217ea7323e3ebcde7d78aa868",
+      "836d42fedaf0ed996c1dd67382b51ea9faaca5383391af625c13e1c833d9bb58"
+    ],
+    [
+      "059b4e9f492cc571e0ba63e5559107d1ad56e93217ea7323e3ebcde7d78aa868",
+      "6826669d243d3f44f4072f59ed5d324ef7f43958d85ad8529f4e88a2a9428486"
+    ],
+    [
+      "059b4e9f492cc571e0ba63e5559107d1ad56e93217ea7323e3ebcde7d78aa868",
+      "d3c3afc0a17ca65f46f088bf7f84cd6109cea142336ee6b9a06c306b62822dab"
+    ],
+    [
+      "6028cacd613fd9cdb50eb7c7a9be90717e7eb961bc851dc94ea7b8b14245b787",
+      "b30876bb30e9043ae9f7fc7ba40323aa118010fc812b628b391461499220883e"
+    ],
+    [
+      "7312472d2860e141a6c213de0a5c6c583774a57f496d98928c454db0e6619f87",
+      "b30876bb30e9043ae9f7fc7ba40323aa118010fc812b628b391461499220883e"
+    ]
+  ]
+}

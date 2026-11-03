@@ -1,0 +1,348 @@
+{
+  "fold": 1,
+  "subjects": {
+    "train": [
+      "004",
+      "116",
+      "140",
+      "168"
+    ],
+    "val": [
+      "079"
+    ],
+    "test": [
+      "066"
+    ]
+  },
+  "counts": {
+    "train": 32,
+    "val": 8,
+    "test": 8
+  },
+  "models": {
+    "cnn": {
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "macro_precision": 0.5,
+      "macro_recall": 0.5,
+      "macro_f1": 0.4666666666666667,
+      "precision_by_class": {
+        "sadness": 1.0,
+        "happiness": 0.0,
+        "neutral": 0.3333333333333333,
+        "fear": 0.6666666666666666
+      },
+      "recall_by_class": {
+        "sadness": 0.5,
+        "happiness": 0.0,
+        "neutral": 0.5,
+        "fear": 1.0
+      },
+      "f1_by_class": {
+        "sadness": 0.6666666666666666,
+        "happiness": 0.0,
+        "neutral": 0.4,
+        "fear": 0.8
+      },
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "labels": [
+        "sadness",
+        "happiness",
+        "neutral",
+        "fear"
+      ],
+      "n": 8,
+      "loss": 1.346144199371338,
+      "test_predictions": [
+        {
+          "filename": "066_y_m_s_a.jpg",
+          "subject": "066",
+          "true": "sadness",
+          "predicted": "fear",
+          "probabilities": [
+            0.20172341167926788,
+            0.2471504807472229,
+            0.2388569712638855,
+            0.3122691810131073
+          ]
+        },
+        {
+          "filename": "066_y_m_s_b.jpg",
+          "subject": "066",
+          "true": "sadness",
+          "predicted": "sadness",
+          "probabilities": [
+            0.25748199224472046,
+            0.25066784024238586,
+            0.23998616635799408,
+            0.251863956451416
+          ]
+        },
+        {
+          "filename": "066_y_m_h_a.jpg",
+          "subject": "066",
+          "true": "happiness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.2317490428686142,
+            0.2558586001396179,
+            0.26444676518440247,
+            0.24794557690620422
+          ]
+        },
+        {
+          "filename": "066_y_m_h_b.jpg",
+          "subject": "066",
+          "true": "happiness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.24842870235443115,
+            0.2476215362548828,
+            0.2736448049545288,
+            0.23030497133731842
+          ]
+        },
+        {
+          "filename": "066_y_m_n_a.jpg",
+          "subject": "066",
+          "true": "neutral",
+          "predicted": "neutral",
+          "probabilities": [
+            0.25188133120536804,
+            0.2484610378742218,
+            0.25958001613616943,
+            0.24007752537727356
+          ]
+        },
+        {
+          "filename": "066_y_m_n_b.jpg",
+          "subject": "066",
+          "true": "neutral",
+          "predicted": "happiness",
+          "probabilities": [
+            0.24212373793125153,
+            0.25334432721138,
+            0.2519029676914215,
+            0.25262898206710815
+          ]
+        },
+        {
+          "filename": "066_y_m_f_a.jpg",
+          "subject": "066",
+          "true": "fear",
+          "predicted": "fear",
+          "probabilities": [
+            0.2063756138086319,
+            0.22745727002620697,
+            0.23324991762638092,
+            0.332917183637619
+          ]
+        },
+        {
+          "filename": "066_y_m_f_b.jpg",
+          "subject": "066",
+          "true": "fear",
+          "predicted": "fear",
+          "probabilities": [
+            0.22730723023414612,
+            0.2282448559999466,
+            0.25076183676719666,
+            0.29368603229522705
+          ]
+        }
+      ],
+      "best_epoch": 8,
+      "training_seconds": 2.97502689997782,
+      "inference_ms": 2.454286666276554,
+      "parameters": 286276,
+      "generator_parameters": 0
+    },
+    "gan": {
+      "accuracy": 0.25,
+      "balanced_accuracy": 0.25,
+      "macro_precision": 0.0625,
+      "macro_recall": 0.25,
+      "macro_f1": 0.1,
+      "precision_by_class": {
+        "sadness": 0.0,
+        "happiness": 0.25,
+        "neutral": 0.0,
+        "fear": 0.0
+      },
+      "recall_by_class": {
+        "sadness": 0.0,
+        "happiness": 1.0,
+        "neutral": 0.0,
+        "fear": 0.0
+      },
+      "f1_by_class": {
+        "sadness": 0.0,
+        "happiness": 0.4,
+        "neutral": 0.0,
+        "fear": 0.0
+      },
+      "confusion_matrix": [
+        [
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "labels": [
+        "sadness",
+        "happiness",
+        "neutral",
+        "fear"
+      ],
+      "n": 8,
+      "loss": 1.3323776721954346,
+      "test_predictions": [
+        {
+          "filename": "066_y_m_s_a.jpg",
+          "subject": "066",
+          "true": "sadness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.24882349371910095,
+            0.29938703775405884,
+            0.2182309776544571,
+            0.23355846107006073
+          ]
+        },
+        {
+          "filename": "066_y_m_s_b.jpg",
+          "subject": "066",
+          "true": "sadness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.2674512565135956,
+            0.31826382875442505,
+            0.22306232154369354,
+            0.1912226378917694
+          ]
+        },
+        {
+          "filename": "066_y_m_h_a.jpg",
+          "subject": "066",
+          "true": "happiness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.274992436170578,
+            0.33254894614219666,
+            0.2375817894935608,
+            0.15487685799598694
+          ]
+        },
+        {
+          "filename": "066_y_m_h_b.jpg",
+          "subject": "066",
+          "true": "happiness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.2793888747692108,
+            0.33236321806907654,
+            0.24097928404808044,
+            0.14726851880550385
+          ]
+        },
+        {
+          "filename": "066_y_m_n_a.jpg",
+          "subject": "066",
+          "true": "neutral",
+          "predicted": "happiness",
+          "probabilities": [
+            0.27279624342918396,
+            0.3293328583240509,
+            0.24317772686481476,
+            0.15469318628311157
+          ]
+        },
+        {
+          "filename": "066_y_m_n_b.jpg",
+          "subject": "066",
+          "true": "neutral",
+          "predicted": "happiness",
+          "probabilities": [
+            0.2659129202365875,
+            0.32616347074508667,
+            0.23767471313476562,
+            0.17024897038936615
+          ]
+        },
+        {
+          "filename": "066_y_m_f_a.jpg",
+          "subject": "066",
+          "true": "fear",
+          "predicted": "happiness",
+          "probabilities": [
+            0.24237848818302155,
+            0.28538018465042114,
+            0.22342191636562347,
+            0.24881936609745026
+          ]
+        },
+        {
+          "filename": "066_y_m_f_b.jpg",
+          "subject": "066",
+          "true": "fear",
+          "predicted": "happiness",
+          "probabilities": [
+            0.25538042187690735,
+            0.2910365164279938,
+            0.23153340816497803,
+            0.22204960882663727
+          ]
+        }
+      ],
+      "best_epoch": 7,
+      "training_seconds": 18.765733699983684,
+      "inference_ms": 2.625149999706385,
+      "parameters": 710629,
+      "generator_parameters": 1022179
+    }
+  }
+}

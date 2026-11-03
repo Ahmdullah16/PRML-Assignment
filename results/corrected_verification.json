@@ -1,0 +1,78 @@
+{
+  "checks": [
+    {
+      "fold": 0,
+      "model": "cnn",
+      "checkpoint_replayed": true,
+      "probabilities_verified": true
+    },
+    {
+      "fold": 0,
+      "model": "gan",
+      "checkpoint_replayed": true,
+      "probabilities_verified": true
+    },
+    {
+      "fold": 1,
+      "model": "cnn",
+      "checkpoint_replayed": true,
+      "probabilities_verified": true
+    },
+    {
+      "fold": 1,
+      "model": "gan",
+      "checkpoint_replayed": true,
+      "probabilities_verified": true
+    },
+    {
+      "fold": 2,
+      "model": "cnn",
+      "checkpoint_replayed": true,
+      "probabilities_verified": true
+    },
+    {
+      "fold": 2,
+      "model": "gan",
+      "checkpoint_replayed": true,
+      "probabilities_verified": true
+    },
+    {
+      "fold": 3,
+      "model": "cnn",
+      "checkpoint_replayed": true,
+      "probabilities_verified": true
+    },
+    {
+      "fold": 3,
+      "model": "gan",
+      "checkpoint_replayed": true,
+      "probabilities_verified": true
+    },
+    {
+      "fold": 4,
+      "model": "cnn",
+      "checkpoint_replayed": true,
+      "probabilities_verified": true
+    },
+    {
+      "fold": 4,
+      "model": "gan",
+      "checkpoint_replayed": true,
+      "probabilities_verified": true
+    },
+    {
+      "fold": 5,
+      "model": "cnn",
+      "checkpoint_replayed": true,
+      "probabilities_verified": true
+    },
+    {
+      "fold": 5,
+      "model": "gan",
+      "checkpoint_replayed": true,
+      "probabilities_verified": true
+    }
+  ],
+  "dataset_hashes_verified": true,
+  "aggregate_verified": true
+}

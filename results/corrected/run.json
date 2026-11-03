@@ -1,0 +1,35 @@
+{
+  "status": "complete",
+  "config": {
+    "data": "private local dataset (not distributed)",
+    "output": "private local experiment directory",
+    "cnn_epochs": 25,
+    "gan_epochs": 40,
+    "batch_size": 8,
+    "lr": 0.0002,
+    "seed": 42,
+    "device": "auto",
+    "threads": 4,
+    "duplicate_review": "results\\duplicate_review.json",
+    "smoke": false
+  },
+  "commit": "e10ee954bc521d764d84f9ca6ffd030a1ccdfe6b",
+  "source_sha256": {
+    "data.py": "e769e83d49f6cc1b4ec1e2116d1568def7d46440a9e6d5265c77e3619d111367",
+    "inference.py": "228ed0758117999b4da3b1eabba38316e45660cd3a243ef358b9eeeeeb409041",
+    "metrics.py": "afaac9f956144ae14e932a640ef2e3360eb67f25c13a80528124f5547fc12d50",
+    "models.py": "b2b24424bc1c3e87e117fb85fa1070e9000ebe1e895fc3a0cef1b6e66e7130b0",
+    "train.py": "9ad1a924ab59b737b8d7966622aec52a8cc35a8f5a2af938fd35ef07d6b5598a",
+    "__init__.py": "d630383f3edf200d14c159976bee8babfed2ba07c3c5d696089a256953a2c1c3"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.14.1+cpu",
+    "numpy": "2.2.6",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "device": "cpu",
+    "threads": 4,
+    "cpu": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+    "gpu": null
+  }
+}

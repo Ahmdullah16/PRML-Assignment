@@ -1,0 +1,1780 @@
+{
+  "provenance": "newly executed corrected experiment",
+  "smoke": false,
+  "dataset": {
+    "images": 48,
+    "classes": [
+      "sadness",
+      "happiness",
+      "neutral",
+      "fear"
+    ],
+    "counts": {
+      "sadness": 12,
+      "happiness": 12,
+      "neutral": 12,
+      "fear": 12
+    },
+    "subjects": [
+      "004",
+      "066",
+      "079",
+      "116",
+      "140",
+      "168"
+    ],
+    "dimensions": {
+      "2835x3543": 48
+    },
+    "near_duplicates": [
+      {
+        "a": "004_o_m_s_a.jpg",
+        "b": "004_o_m_h_a.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "004_o_m_s_a.jpg",
+        "b": "004_o_m_n_b.jpg",
+        "hamming": 2,
+        "same_subject": true
+      },
+      {
+        "a": "004_o_m_s_a.jpg",
+        "b": "004_o_m_f_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "004_o_m_s_b.jpg",
+        "b": "004_o_m_n_a.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "066_y_m_s_a.jpg",
+        "b": "066_y_m_s_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "066_y_m_s_a.jpg",
+        "b": "066_y_m_n_b.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "066_y_m_s_b.jpg",
+        "b": "066_y_m_n_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "079_o_f_s_b.jpg",
+        "b": "079_o_f_f_a.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_s_a.jpg",
+        "b": "116_m_m_s_b.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_s_a.jpg",
+        "b": "116_m_m_h_a.jpg",
+        "hamming": 1,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_s_a.jpg",
+        "b": "116_m_m_h_b.jpg",
+        "hamming": 1,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_s_a.jpg",
+        "b": "116_m_m_n_a.jpg",
+        "hamming": 2,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_s_a.jpg",
+        "b": "116_m_m_n_b.jpg",
+        "hamming": 1,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_s_a.jpg",
+        "b": "116_m_m_f_a.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_s_a.jpg",
+        "b": "116_m_m_f_b.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_s_b.jpg",
+        "b": "079_o_f_h_a.jpg",
+        "hamming": 5,
+        "same_subject": false
+      },
+      {
+        "a": "116_m_m_s_b.jpg",
+        "b": "116_m_m_h_a.jpg",
+        "hamming": 3,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_s_b.jpg",
+        "b": "116_m_m_h_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_s_b.jpg",
+        "b": "116_m_m_n_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "140_y_f_s_a.jpg",
+        "b": "140_y_f_s_b.jpg",
+        "hamming": 3,
+        "same_subject": true
+      },
+      {
+        "a": "140_y_f_s_a.jpg",
+        "b": "140_y_f_h_b.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "140_y_f_s_a.jpg",
+        "b": "140_y_f_n_a.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "140_y_f_s_a.jpg",
+        "b": "140_y_f_n_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "168_m_f_s_a.jpg",
+        "b": "168_m_f_s_b.jpg",
+        "hamming": 2,
+        "same_subject": true
+      },
+      {
+        "a": "168_m_f_s_a.jpg",
+        "b": "168_m_f_h_a.jpg",
+        "hamming": 3,
+        "same_subject": true
+      },
+      {
+        "a": "168_m_f_s_a.jpg",
+        "b": "168_m_f_h_b.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "168_m_f_s_b.jpg",
+        "b": "168_m_f_h_a.jpg",
+        "hamming": 1,
+        "same_subject": true
+      },
+      {
+        "a": "168_m_f_s_b.jpg",
+        "b": "168_m_f_h_b.jpg",
+        "hamming": 2,
+        "same_subject": true
+      },
+      {
+        "a": "004_o_m_h_a.jpg",
+        "b": "004_o_m_h_b.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "004_o_m_h_a.jpg",
+        "b": "004_o_m_n_b.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "004_o_m_h_a.jpg",
+        "b": "004_o_m_f_a.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "004_o_m_h_a.jpg",
+        "b": "004_o_m_f_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "066_y_m_h_a.jpg",
+        "b": "066_y_m_h_b.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "066_y_m_h_b.jpg",
+        "b": "116_m_m_h_a.jpg",
+        "hamming": 5,
+        "same_subject": false
+      },
+      {
+        "a": "066_y_m_h_b.jpg",
+        "b": "116_m_m_h_b.jpg",
+        "hamming": 5,
+        "same_subject": false
+      },
+      {
+        "a": "066_y_m_h_b.jpg",
+        "b": "116_m_m_n_b.jpg",
+        "hamming": 5,
+        "same_subject": false
+      },
+      {
+        "a": "066_y_m_h_b.jpg",
+        "b": "066_y_m_f_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "066_y_m_h_b.jpg",
+        "b": "116_m_m_f_b.jpg",
+        "hamming": 4,
+        "same_subject": false
+      },
+      {
+        "a": "079_o_f_h_a.jpg",
+        "b": "079_o_f_n_a.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "079_o_f_h_a.jpg",
+        "b": "079_o_f_n_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "079_o_f_h_b.jpg",
+        "b": "079_o_f_f_a.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_h_a.jpg",
+        "b": "116_m_m_h_b.jpg",
+        "hamming": 2,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_h_a.jpg",
+        "b": "116_m_m_n_a.jpg",
+        "hamming": 3,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_h_a.jpg",
+        "b": "116_m_m_n_b.jpg",
+        "hamming": 2,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_h_a.jpg",
+        "b": "116_m_m_f_a.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_h_a.jpg",
+        "b": "116_m_m_f_b.jpg",
+        "hamming": 3,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_h_b.jpg",
+        "b": "116_m_m_n_a.jpg",
+        "hamming": 3,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_h_b.jpg",
+        "b": "116_m_m_n_b.jpg",
+        "hamming": 0,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_h_b.jpg",
+        "b": "116_m_m_f_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "140_y_f_h_a.jpg",
+        "b": "140_y_f_h_b.jpg",
+        "hamming": 2,
+        "same_subject": true
+      },
+      {
+        "a": "168_m_f_h_a.jpg",
+        "b": "168_m_f_h_b.jpg",
+        "hamming": 1,
+        "same_subject": true
+      },
+      {
+        "a": "168_m_f_h_a.jpg",
+        "b": "168_m_f_n_a.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "168_m_f_h_a.jpg",
+        "b": "168_m_f_n_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "168_m_f_h_b.jpg",
+        "b": "168_m_f_n_b.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "004_o_m_n_b.jpg",
+        "b": "004_o_m_f_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "066_y_m_n_a.jpg",
+        "b": "066_y_m_n_b.jpg",
+        "hamming": 3,
+        "same_subject": true
+      },
+      {
+        "a": "079_o_f_n_a.jpg",
+        "b": "079_o_f_n_b.jpg",
+        "hamming": 1,
+        "same_subject": true
+      },
+      {
+        "a": "079_o_f_n_a.jpg",
+        "b": "066_y_m_f_b.jpg",
+        "hamming": 4,
+        "same_subject": false
+      },
+      {
+        "a": "079_o_f_n_b.jpg",
+        "b": "066_y_m_f_b.jpg",
+        "hamming": 5,
+        "same_subject": false
+      },
+      {
+        "a": "116_m_m_n_a.jpg",
+        "b": "116_m_m_n_b.jpg",
+        "hamming": 3,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_n_a.jpg",
+        "b": "116_m_m_f_a.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_n_b.jpg",
+        "b": "116_m_m_f_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "140_y_f_n_a.jpg",
+        "b": "140_y_f_n_b.jpg",
+        "hamming": 0,
+        "same_subject": true
+      },
+      {
+        "a": "168_m_f_n_a.jpg",
+        "b": "168_m_f_n_b.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "004_o_m_f_a.jpg",
+        "b": "004_o_m_f_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "079_o_f_f_a.jpg",
+        "b": "079_o_f_f_b.jpg",
+        "hamming": 3,
+        "same_subject": true
+      },
+      {
+        "a": "116_m_m_f_a.jpg",
+        "b": "116_m_m_f_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      },
+      {
+        "a": "140_y_f_f_a.jpg",
+        "b": "140_y_f_f_b.jpg",
+        "hamming": 4,
+        "same_subject": true
+      },
+      {
+        "a": "168_m_f_f_a.jpg",
+        "b": "168_m_f_f_b.jpg",
+        "hamming": 5,
+        "same_subject": true
+      }
+    ],
+    "near_duplicate_rule": "64-bit dHash Hamming <=5; review candidates, not proof",
+    "manifest": "dataset.json"
+  },
+  "metrics": {
+    "cnn": {
+      "pooled": {
+        "accuracy": 0.3958333333333333,
+        "balanced_accuracy": 0.39583333333333337,
+        "macro_precision": 0.3956876456876457,
+        "macro_recall": 0.39583333333333337,
+        "macro_f1": 0.3927168161950771,
+        "precision_by_class": {
+          "sadness": 0.3333333333333333,
+          "happiness": 0.46153846153846156,
+          "neutral": 0.45454545454545453,
+          "fear": 0.3333333333333333
+        },
+        "recall_by_class": {
+          "sadness": 0.25,
+          "happiness": 0.5,
+          "neutral": 0.4166666666666667,
+          "fear": 0.4166666666666667
+        },
+        "f1_by_class": {
+          "sadness": 0.28571428571428575,
+          "happiness": 0.48000000000000004,
+          "neutral": 0.43478260869565216,
+          "fear": 0.3703703703703704
+        },
+        "confusion_matrix": [
+          [
+            3,
+            4,
+            2,
+            3
+          ],
+          [
+            0,
+            6,
+            3,
+            3
+          ],
+          [
+            2,
+            1,
+            5,
+            4
+          ],
+          [
+            4,
+            2,
+            1,
+            5
+          ]
+        ],
+        "labels": [
+          "sadness",
+          "happiness",
+          "neutral",
+          "fear"
+        ],
+        "n": 48
+      },
+      "fold_summary": {
+        "accuracy": {
+          "mean": 0.3958333333333333,
+          "std_population": 0.11219093348196883
+        },
+        "balanced_accuracy": {
+          "mean": 0.3958333333333333,
+          "std_population": 0.11219093348196883
+        },
+        "macro_precision": {
+          "mean": 0.24097222222222223,
+          "std_population": 0.14794926609992418
+        },
+        "macro_recall": {
+          "mean": 0.3958333333333333,
+          "std_population": 0.11219093348196883
+        },
+        "macro_f1": {
+          "mean": 0.2783730158730158,
+          "std_population": 0.1293524497194595
+        }
+      },
+      "subject_accuracy_bootstrap_95": [
+        0.3125,
+        0.4791666666666667
+      ],
+      "bootstrap_note": "Exploratory percentile interval over held-out subject accuracies; six clusters, overlapping training sets; not a population guarantee",
+      "predictions": [
+        {
+          "filename": "004_o_m_s_a.jpg",
+          "subject": "004",
+          "true": "sadness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.18776513636112213,
+            0.5197655558586121,
+            0.018959516659379005,
+            0.273509681224823
+          ]
+        },
+        {
+          "filename": "004_o_m_s_b.jpg",
+          "subject": "004",
+          "true": "sadness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.16724920272827148,
+            0.5520740151405334,
+            0.010901816189289093,
+            0.26977503299713135
+          ]
+        },
+        {
+          "filename": "004_o_m_h_a.jpg",
+          "subject": "004",
+          "true": "happiness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.04969441518187523,
+            0.7921099662780762,
+            0.005808750633150339,
+            0.152386873960495
+          ]
+        },
+        {
+          "filename": "004_o_m_h_b.jpg",
+          "subject": "004",
+          "true": "happiness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.06963565945625305,
+            0.637590765953064,
+            0.024164538830518723,
+            0.26860907673835754
+          ]
+        },
+        {
+          "filename": "004_o_m_n_a.jpg",
+          "subject": "004",
+          "true": "neutral",
+          "predicted": "fear",
+          "probabilities": [
+            0.21443332731723785,
+            0.21680490672588348,
+            0.08620733767747879,
+            0.4825544059276581
+          ]
+        },
+        {
+          "filename": "004_o_m_n_b.jpg",
+          "subject": "004",
+          "true": "neutral",
+          "predicted": "fear",
+          "probabilities": [
+            0.21507033705711365,
+            0.29055893421173096,
+            0.1112440750002861,
+            0.3831266164779663
+          ]
+        },
+        {
+          "filename": "004_o_m_f_a.jpg",
+          "subject": "004",
+          "true": "fear",
+          "predicted": "fear",
+          "probabilities": [
+            0.09538188576698303,
+            0.3205126225948334,
+            0.02402811124920845,
+            0.5600773692131042
+          ]
+        },
+        {
+          "filename": "004_o_m_f_b.jpg",
+          "subject": "004",
+          "true": "fear",
+          "predicted": "happiness",
+          "probabilities": [
+            0.05170910432934761,
+            0.5298572182655334,
+            0.008568706922233105,
+            0.40986505150794983
+          ]
+        },
+        {
+          "filename": "066_y_m_s_a.jpg",
+          "subject": "066",
+          "true": "sadness",
+          "predicted": "fear",
+          "probabilities": [
+            0.20172341167926788,
+            0.2471504807472229,
+            0.2388569712638855,
+            0.3122691810131073
+          ]
+        },
+        {
+          "filename": "066_y_m_s_b.jpg",
+          "subject": "066",
+          "true": "sadness",
+          "predicted": "sadness",
+          "probabilities": [
+            0.25748199224472046,
+            0.25066784024238586,
+            0.23998616635799408,
+            0.251863956451416
+          ]
+        },
+        {
+          "filename": "066_y_m_h_a.jpg",
+          "subject": "066",
+          "true": "happiness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.2317490428686142,
+            0.2558586001396179,
+            0.26444676518440247,
+            0.24794557690620422
+          ]
+        },
+        {
+          "filename": "066_y_m_h_b.jpg",
+          "subject": "066",
+          "true": "happiness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.24842870235443115,
+            0.2476215362548828,
+            0.2736448049545288,
+            0.23030497133731842
+          ]
+        },
+        {
+          "filename": "066_y_m_n_a.jpg",
+          "subject": "066",
+          "true": "neutral",
+          "predicted": "neutral",
+          "probabilities": [
+            0.25188133120536804,
+            0.2484610378742218,
+            0.25958001613616943,
+            0.24007752537727356
+          ]
+        },
+        {
+          "filename": "066_y_m_n_b.jpg",
+          "subject": "066",
+          "true": "neutral",
+          "predicted": "happiness",
+          "probabilities": [
+            0.24212373793125153,
+            0.25334432721138,
+            0.2519029676914215,
+            0.25262898206710815
+          ]
+        },
+        {
+          "filename": "066_y_m_f_a.jpg",
+          "subject": "066",
+          "true": "fear",
+          "predicted": "fear",
+          "probabilities": [
+            0.2063756138086319,
+            0.22745727002620697,
+            0.23324991762638092,
+            0.332917183637619
+          ]
+        },
+        {
+          "filename": "066_y_m_f_b.jpg",
+          "subject": "066",
+          "true": "fear",
+          "predicted": "fear",
+          "probabilities": [
+            0.22730723023414612,
+            0.2282448559999466,
+            0.25076183676719666,
+            0.29368603229522705
+          ]
+        },
+        {
+          "filename": "079_o_f_s_a.jpg",
+          "subject": "079",
+          "true": "sadness",
+          "predicted": "fear",
+          "probabilities": [
+            0.1101064682006836,
+            0.12198003381490707,
+            0.184867262840271,
+            0.5830462574958801
+          ]
+        },
+        {
+          "filename": "079_o_f_s_b.jpg",
+          "subject": "079",
+          "true": "sadness",
+          "predicted": "fear",
+          "probabilities": [
+            0.12493038177490234,
+            0.12702341377735138,
+            0.19136035442352295,
+            0.5566858053207397
+          ]
+        },
+        {
+          "filename": "079_o_f_h_a.jpg",
+          "subject": "079",
+          "true": "happiness",
+          "predicted": "fear",
+          "probabilities": [
+            0.07427161186933517,
+            0.19932754337787628,
+            0.12200909852981567,
+            0.6043917536735535
+          ]
+        },
+        {
+          "filename": "079_o_f_h_b.jpg",
+          "subject": "079",
+          "true": "happiness",
+          "predicted": "fear",
+          "probabilities": [
+            0.06723102927207947,
+            0.11793867498636246,
+            0.10148130357265472,
+            0.7133490443229675
+          ]
+        },
+        {
+          "filename": "079_o_f_n_a.jpg",
+          "subject": "079",
+          "true": "neutral",
+          "predicted": "fear",
+          "probabilities": [
+            0.05782091245055199,
+            0.10428740084171295,
+            0.15412525832653046,
+            0.6837664246559143
+          ]
+        },
+        {
+          "filename": "079_o_f_n_b.jpg",
+          "subject": "079",
+          "true": "neutral",
+          "predicted": "fear",
+          "probabilities": [
+            0.053788136690855026,
+            0.095842145383358,
+            0.1326383501291275,
+            0.7177314162254333
+          ]
+        },
+        {
+          "filename": "079_o_f_f_a.jpg",
+          "subject": "079",
+          "true": "fear",
+          "predicted": "fear",
+          "probabilities": [
+            0.0640384703874588,
+            0.09532091021537781,
+            0.18667763471603394,
+            0.6539629697799683
+          ]
+        },
+        {
+          "filename": "079_o_f_f_b.jpg",
+          "subject": "079",
+          "true": "fear",
+          "predicted": "fear",
+          "probabilities": [
+            0.07631613314151764,
+            0.10249532759189606,
+            0.16710063815116882,
+            0.6540879011154175
+          ]
+        },
+        {
+          "filename": "116_m_m_s_a.jpg",
+          "subject": "116",
+          "true": "sadness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.15008288621902466,
+            0.39088425040245056,
+            0.3687687814235687,
+            0.09026411175727844
+          ]
+        },
+        {
+          "filename": "116_m_m_s_b.jpg",
+          "subject": "116",
+          "true": "sadness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.15371784567832947,
+            0.43146854639053345,
+            0.33535945415496826,
+            0.07945415377616882
+          ]
+        },
+        {
+          "filename": "116_m_m_h_a.jpg",
+          "subject": "116",
+          "true": "happiness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.2008552849292755,
+            0.6249713897705078,
+            0.12558682262897491,
+            0.048586420714855194
+          ]
+        },
+        {
+          "filename": "116_m_m_h_b.jpg",
+          "subject": "116",
+          "true": "happiness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.18304885923862457,
+            0.5480620861053467,
+            0.2034895271062851,
+            0.06539943069219589
+          ]
+        },
+        {
+          "filename": "116_m_m_n_a.jpg",
+          "subject": "116",
+          "true": "neutral",
+          "predicted": "neutral",
+          "probabilities": [
+            0.12659500539302826,
+            0.3474964499473572,
+            0.41813069581985474,
+            0.107777900993824
+          ]
+        },
+        {
+          "filename": "116_m_m_n_b.jpg",
+          "subject": "116",
+          "true": "neutral",
+          "predicted": "neutral",
+          "probabilities": [
+            0.1284889578819275,
+            0.34447160363197327,
+            0.42853298783302307,
+            0.0985063910484314
+          ]
+        },
+        {
+          "filename": "116_m_m_f_a.jpg",
+          "subject": "116",
+          "true": "fear",
+          "predicted": "happiness",
+          "probabilities": [
+            0.14894190430641174,
+            0.39449048042297363,
+            0.3557995855808258,
+            0.10076794028282166
+          ]
+        },
+        {
+          "filename": "116_m_m_f_b.jpg",
+          "subject": "116",
+          "true": "fear",
+          "predicted": "neutral",
+          "probabilities": [
+            0.13132423162460327,
+            0.35126060247421265,
+            0.40861988067626953,
+            0.10879525542259216
+          ]
+        },
+        {
+          "filename": "140_y_f_s_a.jpg",
+          "subject": "140",
+          "true": "sadness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.23028771579265594,
+            0.17466604709625244,
+            0.3319270610809326,
+            0.2631191611289978
+          ]
+        },
+        {
+          "filename": "140_y_f_s_b.jpg",
+          "subject": "140",
+          "true": "sadness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.22880776226520538,
+            0.10753851383924484,
+            0.4161756634712219,
+            0.24747805297374725
+          ]
+        },
+        {
+          "filename": "140_y_f_h_a.jpg",
+          "subject": "140",
+          "true": "happiness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.1952880471944809,
+            0.25705984234809875,
+            0.3061124086380005,
+            0.24153968691825867
+          ]
+        },
+        {
+          "filename": "140_y_f_h_b.jpg",
+          "subject": "140",
+          "true": "happiness",
+          "predicted": "fear",
+          "probabilities": [
+            0.2126883566379547,
+            0.1364072859287262,
+            0.2877240777015686,
+            0.3631802797317505
+          ]
+        },
+        {
+          "filename": "140_y_f_n_a.jpg",
+          "subject": "140",
+          "true": "neutral",
+          "predicted": "neutral",
+          "probabilities": [
+            0.14967802166938782,
+            0.03536008670926094,
+            0.6210465431213379,
+            0.19391535222530365
+          ]
+        },
+        {
+          "filename": "140_y_f_n_b.jpg",
+          "subject": "140",
+          "true": "neutral",
+          "predicted": "neutral",
+          "probabilities": [
+            0.17049643397331238,
+            0.031721774488687515,
+            0.6280465722084045,
+            0.16973520815372467
+          ]
+        },
+        {
+          "filename": "140_y_f_f_a.jpg",
+          "subject": "140",
+          "true": "fear",
+          "predicted": "sadness",
+          "probabilities": [
+            0.4832311272621155,
+            0.03043166548013687,
+            0.3065497875213623,
+            0.17978741228580475
+          ]
+        },
+        {
+          "filename": "140_y_f_f_b.jpg",
+          "subject": "140",
+          "true": "fear",
+          "predicted": "sadness",
+          "probabilities": [
+            0.42430374026298523,
+            0.026330145075917244,
+            0.3585317134857178,
+            0.19083437323570251
+          ]
+        },
+        {
+          "filename": "168_m_f_s_a.jpg",
+          "subject": "168",
+          "true": "sadness",
+          "predicted": "sadness",
+          "probabilities": [
+            0.4493582844734192,
+            0.24110741913318634,
+            0.16770465672016144,
+            0.14182962477207184
+          ]
+        },
+        {
+          "filename": "168_m_f_s_b.jpg",
+          "subject": "168",
+          "true": "sadness",
+          "predicted": "sadness",
+          "probabilities": [
+            0.40847399830818176,
+            0.21388506889343262,
+            0.1727169305086136,
+            0.2049240916967392
+          ]
+        },
+        {
+          "filename": "168_m_f_h_a.jpg",
+          "subject": "168",
+          "true": "happiness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.27171722054481506,
+            0.3782145082950592,
+            0.21346545219421387,
+            0.13660284876823425
+          ]
+        },
+        {
+          "filename": "168_m_f_h_b.jpg",
+          "subject": "168",
+          "true": "happiness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.299181193113327,
+            0.35813358426094055,
+            0.1994791328907013,
+            0.14320607483386993
+          ]
+        },
+        {
+          "filename": "168_m_f_n_a.jpg",
+          "subject": "168",
+          "true": "neutral",
+          "predicted": "sadness",
+          "probabilities": [
+            0.38077929615974426,
+            0.16317765414714813,
+            0.21391519904136658,
+            0.24212785065174103
+          ]
+        },
+        {
+          "filename": "168_m_f_n_b.jpg",
+          "subject": "168",
+          "true": "neutral",
+          "predicted": "sadness",
+          "probabilities": [
+            0.3992423415184021,
+            0.16361746191978455,
+            0.2155400961637497,
+            0.22160005569458008
+          ]
+        },
+        {
+          "filename": "168_m_f_f_a.jpg",
+          "subject": "168",
+          "true": "fear",
+          "predicted": "sadness",
+          "probabilities": [
+            0.37536805868148804,
+            0.19466353952884674,
+            0.19147059321403503,
+            0.23849789798259735
+          ]
+        },
+        {
+          "filename": "168_m_f_f_b.jpg",
+          "subject": "168",
+          "true": "fear",
+          "predicted": "sadness",
+          "probabilities": [
+            0.32784849405288696,
+            0.19166696071624756,
+            0.2289426028728485,
+            0.25154197216033936
+          ]
+        }
+      ]
+    },
+    "gan": {
+      "pooled": {
+        "accuracy": 0.3333333333333333,
+        "balanced_accuracy": 0.3333333333333333,
+        "macro_precision": 0.33035714285714285,
+        "macro_recall": 0.3333333333333333,
+        "macro_f1": 0.32884615384615384,
+        "precision_by_class": {
+          "sadness": 0.25,
+          "happiness": 0.2857142857142857,
+          "neutral": 0.2857142857142857,
+          "fear": 0.5
+        },
+        "recall_by_class": {
+          "sadness": 0.16666666666666666,
+          "happiness": 0.3333333333333333,
+          "neutral": 0.3333333333333333,
+          "fear": 0.5
+        },
+        "f1_by_class": {
+          "sadness": 0.2,
+          "happiness": 0.30769230769230765,
+          "neutral": 0.30769230769230765,
+          "fear": 0.5
+        },
+        "confusion_matrix": [
+          [
+            2,
+            4,
+            4,
+            2
+          ],
+          [
+            2,
+            4,
+            4,
+            2
+          ],
+          [
+            2,
+            4,
+            4,
+            2
+          ],
+          [
+            2,
+            2,
+            2,
+            6
+          ]
+        ],
+        "labels": [
+          "sadness",
+          "happiness",
+          "neutral",
+          "fear"
+        ],
+        "n": 48
+      },
+      "fold_summary": {
+        "accuracy": {
+          "mean": 0.3333333333333333,
+          "std_population": 0.11785113019775792
+        },
+        "balanced_accuracy": {
+          "mean": 0.3333333333333333,
+          "std_population": 0.11785113019775792
+        },
+        "macro_precision": {
+          "mean": 0.15277777777777776,
+          "std_population": 0.12767205771423773
+        },
+        "macro_recall": {
+          "mean": 0.3333333333333333,
+          "std_population": 0.11785113019775792
+        },
+        "macro_f1": {
+          "mean": 0.19166666666666665,
+          "std_population": 0.12963624321753373
+        }
+      },
+      "subject_accuracy_bootstrap_95": [
+        0.25,
+        0.4166666666666667
+      ],
+      "bootstrap_note": "Exploratory percentile interval over held-out subject accuracies; six clusters, overlapping training sets; not a population guarantee",
+      "predictions": [
+        {
+          "filename": "004_o_m_s_a.jpg",
+          "subject": "004",
+          "true": "sadness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.04825514182448387,
+            0.2299758344888687,
+            0.6775161623954773,
+            0.044252898544073105
+          ]
+        },
+        {
+          "filename": "004_o_m_s_b.jpg",
+          "subject": "004",
+          "true": "sadness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.04218572750687599,
+            0.2529049515724182,
+            0.6495433449745178,
+            0.05536601319909096
+          ]
+        },
+        {
+          "filename": "004_o_m_h_a.jpg",
+          "subject": "004",
+          "true": "happiness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.043414145708084106,
+            0.24987399578094482,
+            0.6338121891021729,
+            0.07289963960647583
+          ]
+        },
+        {
+          "filename": "004_o_m_h_b.jpg",
+          "subject": "004",
+          "true": "happiness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.0395132452249527,
+            0.21257837116718292,
+            0.6779209971427917,
+            0.06998731940984726
+          ]
+        },
+        {
+          "filename": "004_o_m_n_a.jpg",
+          "subject": "004",
+          "true": "neutral",
+          "predicted": "neutral",
+          "probabilities": [
+            0.031784772872924805,
+            0.1774257868528366,
+            0.7633814811706543,
+            0.027408046647906303
+          ]
+        },
+        {
+          "filename": "004_o_m_n_b.jpg",
+          "subject": "004",
+          "true": "neutral",
+          "predicted": "neutral",
+          "probabilities": [
+            0.035749856382608414,
+            0.22216662764549255,
+            0.6862715482711792,
+            0.05581200122833252
+          ]
+        },
+        {
+          "filename": "004_o_m_f_a.jpg",
+          "subject": "004",
+          "true": "fear",
+          "predicted": "neutral",
+          "probabilities": [
+            0.0343765914440155,
+            0.20438642799854279,
+            0.6166718602180481,
+            0.14456507563591003
+          ]
+        },
+        {
+          "filename": "004_o_m_f_b.jpg",
+          "subject": "004",
+          "true": "fear",
+          "predicted": "neutral",
+          "probabilities": [
+            0.035938430577516556,
+            0.20262551307678223,
+            0.640203058719635,
+            0.12123296409845352
+          ]
+        },
+        {
+          "filename": "066_y_m_s_a.jpg",
+          "subject": "066",
+          "true": "sadness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.24882349371910095,
+            0.29938703775405884,
+            0.2182309776544571,
+            0.23355846107006073
+          ]
+        },
+        {
+          "filename": "066_y_m_s_b.jpg",
+          "subject": "066",
+          "true": "sadness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.2674512565135956,
+            0.31826382875442505,
+            0.22306232154369354,
+            0.1912226378917694
+          ]
+        },
+        {
+          "filename": "066_y_m_h_a.jpg",
+          "subject": "066",
+          "true": "happiness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.274992436170578,
+            0.33254894614219666,
+            0.2375817894935608,
+            0.15487685799598694
+          ]
+        },
+        {
+          "filename": "066_y_m_h_b.jpg",
+          "subject": "066",
+          "true": "happiness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.2793888747692108,
+            0.33236321806907654,
+            0.24097928404808044,
+            0.14726851880550385
+          ]
+        },
+        {
+          "filename": "066_y_m_n_a.jpg",
+          "subject": "066",
+          "true": "neutral",
+          "predicted": "happiness",
+          "probabilities": [
+            0.27279624342918396,
+            0.3293328583240509,
+            0.24317772686481476,
+            0.15469318628311157
+          ]
+        },
+        {
+          "filename": "066_y_m_n_b.jpg",
+          "subject": "066",
+          "true": "neutral",
+          "predicted": "happiness",
+          "probabilities": [
+            0.2659129202365875,
+            0.32616347074508667,
+            0.23767471313476562,
+            0.17024897038936615
+          ]
+        },
+        {
+          "filename": "066_y_m_f_a.jpg",
+          "subject": "066",
+          "true": "fear",
+          "predicted": "happiness",
+          "probabilities": [
+            0.24237848818302155,
+            0.28538018465042114,
+            0.22342191636562347,
+            0.24881936609745026
+          ]
+        },
+        {
+          "filename": "066_y_m_f_b.jpg",
+          "subject": "066",
+          "true": "fear",
+          "predicted": "happiness",
+          "probabilities": [
+            0.25538042187690735,
+            0.2910365164279938,
+            0.23153340816497803,
+            0.22204960882663727
+          ]
+        },
+        {
+          "filename": "079_o_f_s_a.jpg",
+          "subject": "079",
+          "true": "sadness",
+          "predicted": "fear",
+          "probabilities": [
+            0.044217549264431,
+            0.19735151529312134,
+            0.0436379574239254,
+            0.7147929668426514
+          ]
+        },
+        {
+          "filename": "079_o_f_s_b.jpg",
+          "subject": "079",
+          "true": "sadness",
+          "predicted": "fear",
+          "probabilities": [
+            0.04268236830830574,
+            0.19094941020011902,
+            0.0425424687564373,
+            0.7238257527351379
+          ]
+        },
+        {
+          "filename": "079_o_f_h_a.jpg",
+          "subject": "079",
+          "true": "happiness",
+          "predicted": "fear",
+          "probabilities": [
+            0.04262849688529968,
+            0.26935070753097534,
+            0.09515482187271118,
+            0.5928659439086914
+          ]
+        },
+        {
+          "filename": "079_o_f_h_b.jpg",
+          "subject": "079",
+          "true": "happiness",
+          "predicted": "fear",
+          "probabilities": [
+            0.026026153936982155,
+            0.17964304983615875,
+            0.065187469124794,
+            0.7291433811187744
+          ]
+        },
+        {
+          "filename": "079_o_f_n_a.jpg",
+          "subject": "079",
+          "true": "neutral",
+          "predicted": "fear",
+          "probabilities": [
+            0.04110828787088394,
+            0.20792007446289062,
+            0.05406809598207474,
+            0.6969035267829895
+          ]
+        },
+        {
+          "filename": "079_o_f_n_b.jpg",
+          "subject": "079",
+          "true": "neutral",
+          "predicted": "fear",
+          "probabilities": [
+            0.039496567100286484,
+            0.2044677436351776,
+            0.04912254214286804,
+            0.7069131731987
+          ]
+        },
+        {
+          "filename": "079_o_f_f_a.jpg",
+          "subject": "079",
+          "true": "fear",
+          "predicted": "fear",
+          "probabilities": [
+            0.024095850065350533,
+            0.13839773833751678,
+            0.02675747312605381,
+            0.8107488751411438
+          ]
+        },
+        {
+          "filename": "079_o_f_f_b.jpg",
+          "subject": "079",
+          "true": "fear",
+          "predicted": "fear",
+          "probabilities": [
+            0.030666574835777283,
+            0.1621495932340622,
+            0.03297656029462814,
+            0.7742072343826294
+          ]
+        },
+        {
+          "filename": "116_m_m_s_a.jpg",
+          "subject": "116",
+          "true": "sadness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.19172456860542297,
+            0.2844680845737457,
+            0.24441659450531006,
+            0.27939069271087646
+          ]
+        },
+        {
+          "filename": "116_m_m_s_b.jpg",
+          "subject": "116",
+          "true": "sadness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.18826358020305634,
+            0.29031243920326233,
+            0.2430102676153183,
+            0.27841368317604065
+          ]
+        },
+        {
+          "filename": "116_m_m_h_a.jpg",
+          "subject": "116",
+          "true": "happiness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.1914849430322647,
+            0.29218199849128723,
+            0.2461671084165573,
+            0.2701660096645355
+          ]
+        },
+        {
+          "filename": "116_m_m_h_b.jpg",
+          "subject": "116",
+          "true": "happiness",
+          "predicted": "happiness",
+          "probabilities": [
+            0.18708698451519012,
+            0.29035067558288574,
+            0.245142862200737,
+            0.27741944789886475
+          ]
+        },
+        {
+          "filename": "116_m_m_n_a.jpg",
+          "subject": "116",
+          "true": "neutral",
+          "predicted": "happiness",
+          "probabilities": [
+            0.1846769154071808,
+            0.28966590762138367,
+            0.246050626039505,
+            0.27960649132728577
+          ]
+        },
+        {
+          "filename": "116_m_m_n_b.jpg",
+          "subject": "116",
+          "true": "neutral",
+          "predicted": "happiness",
+          "probabilities": [
+            0.1864289492368698,
+            0.2911689579486847,
+            0.24637800455093384,
+            0.2760240137577057
+          ]
+        },
+        {
+          "filename": "116_m_m_f_a.jpg",
+          "subject": "116",
+          "true": "fear",
+          "predicted": "fear",
+          "probabilities": [
+            0.18006201088428497,
+            0.2811654806137085,
+            0.23776935040950775,
+            0.3010031282901764
+          ]
+        },
+        {
+          "filename": "116_m_m_f_b.jpg",
+          "subject": "116",
+          "true": "fear",
+          "predicted": "fear",
+          "probabilities": [
+            0.18193307518959045,
+            0.2838364243507385,
+            0.2407202422618866,
+            0.29351019859313965
+          ]
+        },
+        {
+          "filename": "140_y_f_s_a.jpg",
+          "subject": "140",
+          "true": "sadness",
+          "predicted": "sadness",
+          "probabilities": [
+            0.40582188963890076,
+            0.2182813435792923,
+            0.14816656708717346,
+            0.22773022949695587
+          ]
+        },
+        {
+          "filename": "140_y_f_s_b.jpg",
+          "subject": "140",
+          "true": "sadness",
+          "predicted": "sadness",
+          "probabilities": [
+            0.4134137034416199,
+            0.20476758480072021,
+            0.15809684991836548,
+            0.22372187674045563
+          ]
+        },
+        {
+          "filename": "140_y_f_h_a.jpg",
+          "subject": "140",
+          "true": "happiness",
+          "predicted": "sadness",
+          "probabilities": [
+            0.4427247643470764,
+            0.20274841785430908,
+            0.1439891904592514,
+            0.2105376273393631
+          ]
+        },
+        {
+          "filename": "140_y_f_h_b.jpg",
+          "subject": "140",
+          "true": "happiness",
+          "predicted": "sadness",
+          "probabilities": [
+            0.43709370493888855,
+            0.19559860229492188,
+            0.14012698829174042,
+            0.22718074917793274
+          ]
+        },
+        {
+          "filename": "140_y_f_n_a.jpg",
+          "subject": "140",
+          "true": "neutral",
+          "predicted": "sadness",
+          "probabilities": [
+            0.3704494535923004,
+            0.21191741526126862,
+            0.15330934524536133,
+            0.26432374119758606
+          ]
+        },
+        {
+          "filename": "140_y_f_n_b.jpg",
+          "subject": "140",
+          "true": "neutral",
+          "predicted": "sadness",
+          "probabilities": [
+            0.3901797831058502,
+            0.20814351737499237,
+            0.1513795256614685,
+            0.2502971291542053
+          ]
+        },
+        {
+          "filename": "140_y_f_f_a.jpg",
+          "subject": "140",
+          "true": "fear",
+          "predicted": "sadness",
+          "probabilities": [
+            0.4001689851284027,
+            0.1765185445547104,
+            0.11814220994710922,
+            0.30517032742500305
+          ]
+        },
+        {
+          "filename": "140_y_f_f_b.jpg",
+          "subject": "140",
+          "true": "fear",
+          "predicted": "sadness",
+          "probabilities": [
+            0.39127248525619507,
+            0.17721495032310486,
+            0.12041690200567245,
+            0.3110957145690918
+          ]
+        },
+        {
+          "filename": "168_m_f_s_a.jpg",
+          "subject": "168",
+          "true": "sadness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.23719531297683716,
+            0.22189961373806,
+            0.30772778391838074,
+            0.23317725956439972
+          ]
+        },
+        {
+          "filename": "168_m_f_s_b.jpg",
+          "subject": "168",
+          "true": "sadness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.24050119519233704,
+            0.2133810669183731,
+            0.2990086078643799,
+            0.24710911512374878
+          ]
+        },
+        {
+          "filename": "168_m_f_h_a.jpg",
+          "subject": "168",
+          "true": "happiness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.22782990336418152,
+            0.22448918223381042,
+            0.30338165163993835,
+            0.2442992776632309
+          ]
+        },
+        {
+          "filename": "168_m_f_h_b.jpg",
+          "subject": "168",
+          "true": "happiness",
+          "predicted": "neutral",
+          "probabilities": [
+            0.2326337844133377,
+            0.2241096943616867,
+            0.30527257919311523,
+            0.23798401653766632
+          ]
+        },
+        {
+          "filename": "168_m_f_n_a.jpg",
+          "subject": "168",
+          "true": "neutral",
+          "predicted": "neutral",
+          "probabilities": [
+            0.2297639697790146,
+            0.21773473918437958,
+            0.3005754351615906,
+            0.25192591547966003
+          ]
+        },
+        {
+          "filename": "168_m_f_n_b.jpg",
+          "subject": "168",
+          "true": "neutral",
+          "predicted": "neutral",
+          "probabilities": [
+            0.23077920079231262,
+            0.22199198603630066,
+            0.3058816194534302,
+            0.24134723842144012
+          ]
+        },
+        {
+          "filename": "168_m_f_f_a.jpg",
+          "subject": "168",
+          "true": "fear",
+          "predicted": "fear",
+          "probabilities": [
+            0.23862074315547943,
+            0.20422405004501343,
+            0.27276480197906494,
+            0.2843904495239258
+          ]
+        },
+        {
+          "filename": "168_m_f_f_b.jpg",
+          "subject": "168",
+          "true": "fear",
+          "predicted": "fear",
+          "probabilities": [
+            0.2428404688835144,
+            0.1950681358575821,
+            0.26967567205429077,
+            0.2924157381057739
+          ]
+        }
+      ]
+    }
+  }
+}
