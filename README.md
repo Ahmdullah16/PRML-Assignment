@@ -6,7 +6,38 @@ A tested PyTorch study of **happiness, sadness, fear and neutral** using 48 orig
 
 **[Open the research dashboard](https://facial-expression.streamlit.app/)** · seed-42 classifier inference and research reports.
 
-## New: seed-42 notebook and separate split reports
+## Current: shuffle each class and split 6 / 3 / 3
+
+The corrected request uses all **12 images in each class**: shuffle that class with seed 42, assign **6 training / 3 validation / 3 test**, then independently shuffle each combined partition. Totals: **24 train / 12 validation / 12 test (50% / 25% / 25%)**. Training minibatches shuffle again each epoch. Exact per-class permutations and final file orders are saved in `results/class_6_3_3_seed42/split_manifest.json`.
+
+| Class | Training | Validation | Test |
+|---|---:|---:|---:|
+| Happiness | 6 | 3 | 3 |
+| Sadness | 6 | 3 | 3 |
+| Fear | 6 | 3 | 3 |
+| Neutral | 6 | 3 | 3 |
+| **Total** | **24** | **12** | **12** |
+
+Open the [executed 6/3/3 notebook](notebooks/PRML_Class_6_3_3_Seed42.ipynb). Separate [training](reports/class_6_3_3_seed42/TRAIN_REPORT.md), [validation](reports/class_6_3_3_seed42/VALIDATION_REPORT.md), [test](reports/class_6_3_3_seed42/TEST_REPORT.md) and [experiment](reports/class_6_3_3_seed42/EXPERIMENT_REPORT.md) reports document this exact protocol.
+
+| Corrected partition | CNN accuracy | AC-GAN accuracy |
+|---|---:|---:|
+| Training | 100.00% | 50.00% |
+| Validation | 41.67% | 25.00% |
+| Test | 41.67% | 25.00% |
+
+Images do not overlap across sets. **Subject identities do overlap**, as recorded in the manifest. These are held-out-image scores, not unseen-person scores. Previous subject-independent LOSO and subject-holdout results are preserved separately. Models select epochs using validation CE only, with fixed 25 CNN / 40 GAN epoch budgets and seed 42.
+
+```bash
+python -m scripts.run_holdout --zip "PATH/TO/PRML Assignment Data.zip" --strategy class_6_3_3 --output results/runs/class_6_3_3_seed42 --public-output results/class_6_3_3_seed42 --export
+python -m scripts.report_class_split
+```
+
+The public classifiers in `deployment/` use this corrected split. Their source ZIP and generator remain private. No training is performed during app startup.
+
+## Previous: seed-42 subject-holdout notebook and reports
+
+This section records the earlier protocol. Its notebook and reports remain available for comparison; current public prediction uses the corrected 6/3/3 image split above.
 
 Open [the executed project notebook](notebooks/PRML_Seed42_CNN_ACGAN.ipynb). Its **13 code cells executed without errors** using the supplied private ZIP. Install `requirements-notebook.txt` for the notebook environment. The default ZIP path is the user-provided Windows path; use `PRML_DATA_ZIP` to override it elsewhere.
 
