@@ -1,7 +1,7 @@
-*.py text eol=lf
-*.json text eol=lf
-*.md text eol=lf
-*.toml text eol=lf
-*.yml text eol=lf
-*.txt text eol=lf
+# Preserve binary reports, plots and trusted classifier snapshots.
+*.pdf binary
 *.png binary
+*.pt binary
+# This exact byte stream is SHA256-bound to both selected checkpoints.
+# Preserve its original CRLF bytes on every checkout platform.
+results/kaggle_seed42/split_manifest.json binary

@@ -1,0 +1,30 @@
+{
+  "automated_tests": {
+    "passed": 29,
+    "failed": 0
+  },
+  "repository_dashboard_pages": 7,
+  "standalone_submission_dashboard_pages": 7,
+  "heldout_images_per_model": 5009,
+  "saved_metric_arithmetic_verified": true,
+  "sklearn_crosscheck": true,
+  "representative_real_image_inference_verified": true,
+  "checkpoint_generator_discriminator_pair_verified": true,
+  "pdf": {
+    "pages": 14,
+    "all_pages_visually_reviewed": true,
+    "metric_and_count_crosscheck": true
+  },
+  "submission_zip": {
+    "extraction_verified": true,
+    "all_file_hashes_verified": true,
+    "standalone_verifier_passed": true
+  },
+  "training_source_hashes_verified": true,
+  "raw_faces_not_published": true,
+  "limitations": [
+    "Image-level split; subject identities unavailable",
+    "38 repeated test records and one conflicting-label exact-pixel group retained",
+    "Private generator grid has coarse outputs and limited within-class diversity"
+  ]
+}

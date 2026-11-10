@@ -1,16 +1,21 @@
 {
-  "experiment": "seed42-class-6-3-3-v1",
+  "experiment": "kaggle-four-class-seed42-v1",
+  "seed": 42,
+  "dataset": "dilkushsingh/facial-emotion-dataset",
+  "split_manifest_sha256": "812f3a7974cf89273bb454df2a2b4298152e635d958e56cbee5b063a08206d60",
   "files": {
     "cnn": {
       "file": "cnn.pt",
-      "bytes": 1153052,
-      "sha256": "903423bee0bcdbe8d87c6ef8ffdaeb34ad359bb6c780509b8873a28b7c5ed952"
+      "bytes": 1152796,
+      "sha256": "77e4f40ffe7afd183d8efd5c94b2baa00c868387f943aca75d1676a101117ffa",
+      "best_epoch": 20
     },
     "gan": {
       "file": "gan.pt",
-      "bytes": 2846839,
-      "sha256": "aafe7fe87a0b3baedc96232163b9c12c9350edfff8681ff96cbd8f850e46d3b9"
+      "bytes": 2846647,
+      "sha256": "199c11a66e845beea489a1fdbf6c182b76c9d40af5dba441c7ca99b6a82f8ead",
+      "best_epoch": 15
     }
   },
-  "note": "Validation-selected classifier weights for public inference; no generator or source images"
+  "note": "New Kaggle experiment; paired generator stays private; classifier-only public inference; no source photographs"
 }

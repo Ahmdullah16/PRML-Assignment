@@ -1,0 +1,43 @@
+{
+  "experiment": "kaggle-four-class-seed42-v1",
+  "seed": 42,
+  "classes": [
+    "sadness",
+    "happiness",
+    "neutral",
+    "fear"
+  ],
+  "size": 64,
+  "config": {
+    "data": "..\\dataset_repaired",
+    "output": "results\\runs\\kaggle_seed42",
+    "manifest": "results\\kaggle_seed42\\split_manifest.json",
+    "cnn_epochs": 20,
+    "gan_epochs": 15,
+    "batch_size": 64,
+    "patience": 5,
+    "lr": 0.001,
+    "threads": 4,
+    "model": "both"
+  },
+  "split_manifest_sha256": "812f3a7974cf89273bb454df2a2b4298152e635d958e56cbee5b063a08206d60",
+  "selection": "minimum validation unweighted cross-entropy; early stopping patience 5",
+  "optimizer": "CNN AdamW lr .001, weight decay .0001, betas .9/.999; GAN AdamW D weight decay 0 and Adam G, lr .0002, betas .5/.999",
+  "scheduler": "CNN ReduceLROnPlateau validation CE, factor .5 patience 2; GAN fixed LR",
+  "hardware": {
+    "device": "cpu",
+    "cpu": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+    "threads": 4
+  },
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.15.0+cpu",
+    "numpy": "2.5.4",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "source_sha256": {
+    "C:\\Users\\DELL\\Documents\\Codex\\2026-11-10\\files-pasted-by-the-user-codex\\work\\repo\\scripts\\train_kaggle.py": "8646c989cdc7ffca7407cec0da857ce948b48ea04bafdc9a59b1a78649cdb2ea",
+    "prml\\models.py": "b2b24424bc1c3e87e117fb85fa1070e9000ebe1e895fc3a0cef1b6e66e7130b0",
+    "prml\\train.py": "9ad1a924ab59b737b8d7966622aec52a8cc35a8f5a2af938fd35ef07d6b5598a"
+  }
+}

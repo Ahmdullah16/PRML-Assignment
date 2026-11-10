@@ -1,0 +1,8 @@
+{
+  "test_records": 5009,
+  "unique_decoded_pixel_hashes": 4971,
+  "repeated_exact_test_records": 38,
+  "conflicting_label_pixel_groups": 1,
+  "unique_conservative_duplicate_groups": 4952,
+  "policy": "Retain all original selected test records and original annotations; score source labels, disclose reduced independence and possible annotation conflicts."
+}

@@ -1,0 +1,337 @@
+{
+  "experiment": "kaggle-four-class-seed42-v1",
+  "status": "complete",
+  "labels": [
+    "sadness",
+    "happiness",
+    "neutral",
+    "fear"
+  ],
+  "split_manifest_sha256": "812f3a7974cf89273bb454df2a2b4298152e635d958e56cbee5b063a08206d60",
+  "configuration": {
+    "experiment": "kaggle-four-class-seed42-v1",
+    "seed": 42,
+    "classes": [
+      "sadness",
+      "happiness",
+      "neutral",
+      "fear"
+    ],
+    "size": 64,
+    "config": {
+      "data": "..\\dataset_repaired",
+      "output": "results\\runs\\kaggle_seed42",
+      "manifest": "results\\kaggle_seed42\\split_manifest.json",
+      "cnn_epochs": 20,
+      "gan_epochs": 15,
+      "batch_size": 64,
+      "patience": 5,
+      "lr": 0.001,
+      "threads": 4,
+      "model": "both"
+    },
+    "split_manifest_sha256": "812f3a7974cf89273bb454df2a2b4298152e635d958e56cbee5b063a08206d60",
+    "selection": "minimum validation unweighted cross-entropy; early stopping patience 5",
+    "optimizer": "CNN AdamW lr .001, weight decay .0001, betas .9/.999; GAN AdamW D weight decay 0 and Adam G, lr .0002, betas .5/.999",
+    "scheduler": "CNN ReduceLROnPlateau validation CE, factor .5 patience 2; GAN fixed LR",
+    "hardware": {
+      "device": "cpu",
+      "cpu": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+      "threads": 4
+    },
+    "environment": {
+      "python": "3.12.14",
+      "torch": "2.15.0+cpu",
+      "numpy": "2.5.4",
+      "platform": "Windows-11-10.0.26200-SP0"
+    },
+    "source_sha256": {
+      "C:\\Users\\DELL\\Documents\\Codex\\2026-11-10\\files-pasted-by-the-user-codex\\work\\repo\\scripts\\train_kaggle.py": "8646c989cdc7ffca7407cec0da857ce948b48ea04bafdc9a59b1a78649cdb2ea",
+      "prml\\models.py": "b2b24424bc1c3e87e117fb85fa1070e9000ebe1e895fc3a0cef1b6e66e7130b0",
+      "prml\\train.py": "9ad1a924ab59b737b8d7966622aec52a8cc35a8f5a2af938fd35ef07d6b5598a"
+    }
+  },
+  "models": {
+    "cnn": {
+      "status": "complete",
+      "epochs": 20,
+      "best_epoch": 20,
+      "best_validation_loss": 0.9002069730586236,
+      "training_seconds": 1670.2644837999978,
+      "parameters": 286276,
+      "generator_parameters": 0,
+      "checkpoint_sha256": "77e4f40ffe7afd183d8efd5c94b2baa00c868387f943aca75d1676a101117ffa",
+      "test": {
+        "accuracy": 0.6354561788780195,
+        "balanced_accuracy": 0.6057785989778844,
+        "macro_precision": 0.6386960628993374,
+        "macro_recall": 0.6057785989778844,
+        "macro_f1": 0.6100377482630235,
+        "precision_by_class": {
+          "sadness": 0.4647887323943662,
+          "happiness": 0.8263585259212992,
+          "neutral": 0.6384180790960452,
+          "fear": 0.6252189141856392
+        },
+        "recall_by_class": {
+          "sadness": 0.6653225806451613,
+          "happiness": 0.8273921200750469,
+          "neutral": 0.5385226370135028,
+          "fear": 0.3918770581778266
+        },
+        "f1_by_class": {
+          "sadness": 0.5472636815920398,
+          "happiness": 0.826875,
+          "neutral": 0.5842309349418354,
+          "fear": 0.4817813765182186
+        },
+        "confusion_matrix": [
+          [
+            825,
+            97,
+            212,
+            106
+          ],
+          [
+            128,
+            1323,
+            94,
+            54
+          ],
+          [
+            435,
+            92,
+            678,
+            54
+          ],
+          [
+            387,
+            89,
+            78,
+            357
+          ]
+        ],
+        "labels": [
+          "sadness",
+          "happiness",
+          "neutral",
+          "fear"
+        ],
+        "n": 5009,
+        "loss": 0.8781835400289488,
+        "weighted_precision": 0.6530301664049131,
+        "weighted_recall": 0.6354561788780195,
+        "weighted_f1": 0.6339049054250344
+      },
+      "classification_report": {
+        "sadness": {
+          "precision": 0.4647887323943662,
+          "recall": 0.6653225806451613,
+          "f1-score": 0.5472636815920398,
+          "support": 1240.0
+        },
+        "happiness": {
+          "precision": 0.8263585259212992,
+          "recall": 0.8273921200750469,
+          "f1-score": 0.826875,
+          "support": 1599.0
+        },
+        "neutral": {
+          "precision": 0.6384180790960452,
+          "recall": 0.5385226370135028,
+          "f1-score": 0.5842309349418354,
+          "support": 1259.0
+        },
+        "fear": {
+          "precision": 0.6252189141856392,
+          "recall": 0.3918770581778266,
+          "f1-score": 0.4817813765182186,
+          "support": 911.0
+        },
+        "accuracy": 0.6354561788780195,
+        "macro avg": {
+          "precision": 0.6386960628993374,
+          "recall": 0.6057785989778844,
+          "f1-score": 0.6100377482630235,
+          "support": 5009.0
+        },
+        "weighted avg": {
+          "precision": 0.6530301664049131,
+          "recall": 0.6354561788780195,
+          "f1-score": 0.6339049054250344,
+          "support": 5009.0
+        }
+      }
+    },
+    "gan": {
+      "status": "complete",
+      "epochs": 15,
+      "best_epoch": 15,
+      "best_validation_loss": 1.2280297033975784,
+      "training_seconds": 2065.7585531000077,
+      "parameters": 710629,
+      "generator_parameters": 1022179,
+      "checkpoint_sha256": "199c11a66e845beea489a1fdbf6c182b76c9d40af5dba441c7ca99b6a82f8ead",
+      "test": {
+        "accuracy": 0.48253144340187665,
+        "balanced_accuracy": 0.4502805992118739,
+        "macro_precision": 0.4507612590653095,
+        "macro_recall": 0.4502805992118739,
+        "macro_f1": 0.4447772533702679,
+        "precision_by_class": {
+          "sadness": 0.4034034034034034,
+          "happiness": 0.5950026028110359,
+          "neutral": 0.4388243335611757,
+          "fear": 0.365814696485623
+        },
+        "recall_by_class": {
+          "sadness": 0.325,
+          "happiness": 0.7148217636022514,
+          "neutral": 0.5099285146942018,
+          "fear": 0.2513721185510428
+        },
+        "f1_by_class": {
+          "sadness": 0.3599821348816436,
+          "happiness": 0.6494318181818183,
+          "neutral": 0.4717119764878766,
+          "fear": 0.2979830839297333
+        },
+        "confusion_matrix": [
+          [
+            403,
+            281,
+            394,
+            162
+          ],
+          [
+            166,
+            1143,
+            179,
+            111
+          ],
+          [
+            224,
+            269,
+            642,
+            124
+          ],
+          [
+            206,
+            228,
+            248,
+            229
+          ]
+        ],
+        "labels": [
+          "sadness",
+          "happiness",
+          "neutral",
+          "fear"
+        ],
+        "n": 5009,
+        "loss": 1.2220586908865556,
+        "weighted_precision": 0.4666333412990596,
+        "weighted_recall": 0.48253144340187665,
+        "weighted_f1": 0.4691889184236752
+      },
+      "classification_report": {
+        "sadness": {
+          "precision": 0.4034034034034034,
+          "recall": 0.325,
+          "f1-score": 0.3599821348816436,
+          "support": 1240.0
+        },
+        "happiness": {
+          "precision": 0.5950026028110359,
+          "recall": 0.7148217636022514,
+          "f1-score": 0.6494318181818182,
+          "support": 1599.0
+        },
+        "neutral": {
+          "precision": 0.4388243335611757,
+          "recall": 0.5099285146942018,
+          "f1-score": 0.47171197648787655,
+          "support": 1259.0
+        },
+        "fear": {
+          "precision": 0.365814696485623,
+          "recall": 0.2513721185510428,
+          "f1-score": 0.2979830839297333,
+          "support": 911.0
+        },
+        "accuracy": 0.48253144340187665,
+        "macro avg": {
+          "precision": 0.4507612590653095,
+          "recall": 0.4502805992118739,
+          "f1-score": 0.4447772533702679,
+          "support": 5009.0
+        },
+        "weighted avg": {
+          "precision": 0.4666333412990596,
+          "recall": 0.48253144340187665,
+          "f1-score": 0.4691889184236752,
+          "support": 5009.0
+        }
+      }
+    }
+  },
+  "training_majority_baseline": {
+    "selected_class": "happiness",
+    "accuracy": 0.3192253942902775,
+    "balanced_accuracy": 0.25,
+    "macro_precision": 0.07980634857256938,
+    "macro_recall": 0.25,
+    "macro_f1": 0.12098970944309927,
+    "precision_by_class": {
+      "sadness": 0.0,
+      "happiness": 0.3192253942902775,
+      "neutral": 0.0,
+      "fear": 0.0
+    },
+    "recall_by_class": {
+      "sadness": 0.0,
+      "happiness": 1.0,
+      "neutral": 0.0,
+      "fear": 0.0
+    },
+    "f1_by_class": {
+      "sadness": 0.0,
+      "happiness": 0.48395883777239707,
+      "neutral": 0.0,
+      "fear": 0.0
+    },
+    "confusion_matrix": [
+      [
+        0,
+        1240,
+        0,
+        0
+      ],
+      [
+        0,
+        1599,
+        0,
+        0
+      ],
+      [
+        0,
+        1259,
+        0,
+        0
+      ],
+      [
+        0,
+        911,
+        0,
+        0
+      ]
+    ],
+    "labels": [
+      "sadness",
+      "happiness",
+      "neutral",
+      "fear"
+    ],
+    "n": 5009
+  }
+}

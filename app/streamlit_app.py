@@ -49,7 +49,13 @@ def main():
     available = {"Recovered baseline": ROOT / "results/historical_verified.json"}
     if (ROOT / "results/corrected/aggregate.json").exists():
         available["Corrected experiment"] = ROOT / "results/corrected/aggregate.json"
+    if (ROOT / "results/kaggle_seed42/summary.json").exists():
+        available["Kaggle four-class retraining"] = ROOT / "results/kaggle_seed42/summary.json"
     selection = st.sidebar.selectbox("Evidence source", list(available), index=len(available) - 1)
+    if selection == "Kaggle four-class retraining" or (page == "Prediction Studio" and "Kaggle four-class retraining" in available):
+        from app.kaggle_dashboard import render
+        render(page, ROOT, checkpoint)
+        return
     result = get_json(available[selection])
     dataset = get_json(ROOT / "results/dataset.json")
     figure_root = ROOT / ("results/figures/corrected" if selection == "Corrected experiment" else "results/figures/historical")
@@ -59,7 +65,10 @@ def main():
     st.caption("Prediction models: seed-42 per-class 6/3/3 image split · 64 × 64 RGB" if page == "Prediction Studio" else
                f"LOSO evidence: {selection} · subject-independent evaluation · 64 × 64 RGB")
     if page == "Overview":
-        if (ROOT / "deployment/manifest.json").exists():
+        deployed = get_json(ROOT / "deployment/manifest.json")
+        if deployed and deployed.get("experiment") == "kaggle-four-class-seed42-v1":
+            st.info("Public prediction now uses the separately retrained Kaggle four-class models. The historical evidence selected below remains a separate experiment; choose Kaggle four-class retraining for current model results.")
+        elif deployed:
             st.info("Public prediction uses the corrected per-class 6/3/3 split: 24 training / 12 validation / 12 test images, seed 42. Test image accuracy: CNN 41.67%, AC-GAN 25%. Subjects overlap across these sets. The six-fold LOSO results below are separate subject-independent evidence.")
         st.markdown("## Two learning objectives. One controlled comparison.")
         st.write("Compare a supervised CNN with the auxiliary expression head of an AC-GAN discriminator. "

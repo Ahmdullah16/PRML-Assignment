@@ -1,0 +1,7 @@
+{
+  "stage": "Data preparation and audit",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "pillow": "13.0.0",
+  "note": "Training/evaluation used the separate recorded venv environment. Exact prepared split manifests are authoritative."
+}

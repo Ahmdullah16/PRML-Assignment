@@ -18,9 +18,16 @@ def test_deployed_classifier(kind):
     assert hashlib.sha256(path.read_bytes()).hexdigest() == manifest["files"][kind]["sha256"]
     model, metadata = load_checkpoint(path)
     assert metadata["seed"] == 42 and metadata["type"] == kind
-    summary = json.loads((ROOT / "results/class_6_3_3_seed42/summary.json").read_text())
-    assert metadata["experiment"] == "seed42-class-6-3-3-v1"
-    assert metadata["subjects"] == {n: p["subjects"] for n, p in summary["split_manifest"]["partitions"].items()}
+    assert metadata['experiment'] == manifest['experiment']
+    if metadata['experiment'] == 'kaggle-four-class-seed42-v1':
+        summary = json.loads((ROOT / 'results/kaggle_seed42/summary.json').read_text())
+        assert metadata['split_manifest_sha256'] == summary['split_manifest_sha256']
+        assert metadata['best_epoch'] == summary['models'][kind]['best_epoch']
+        assert metadata['experiment'] == summary['experiment']
+    else:
+        summary = json.loads((ROOT / "results/class_6_3_3_seed42/summary.json").read_text())
+        assert metadata["experiment"] == "seed42-class-6-3-3-v1"
+        assert metadata["subjects"] == {n: p["subjects"] for n, p in summary["split_manifest"]["partitions"].items()}
     buffer = io.BytesIO()
     Image.new("RGB", (64, 64), (128, 128, 128)).save(buffer, format="PNG")
     buffer.seek(0)
