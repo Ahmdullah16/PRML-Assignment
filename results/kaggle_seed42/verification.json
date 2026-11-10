@@ -1,0 +1,9 @@
+{
+  "saved_predictions_recomputed": true,
+  "sklearn_metrics_crosschecked": true,
+  "checkpoint_reload": true,
+  "representative_uploaded_image_preprocessing": true,
+  "test_n": 5009,
+  "no_test_augmentation": true,
+  "zero_division": 0
+}

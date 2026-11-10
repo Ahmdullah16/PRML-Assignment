@@ -24,3 +24,12 @@ def test_results_dashboard_without_torch(monkeypatch):
     app.radio[0].set_value("Prediction Studio").run()
     assert not app.exception
     assert any("unavailable" in message.value.lower() for message in app.warning)
+
+
+@pytest.mark.parametrize('source',['Recovered baseline','Corrected experiment'])
+def test_historical_evidence_remains_separate(source):
+    app=AppTest.from_file(str(APP),default_timeout=30).run()
+    next(w for w in app.selectbox if w.label=='Evidence source').set_value(source).run()
+    assert not app.exception
+    assert any(source in c.value for c in app.caption)
+    assert next(m for m in app.metric if m.label=='Original images').value=='48'
