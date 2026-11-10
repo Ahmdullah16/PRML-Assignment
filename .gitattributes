@@ -1,3 +1,10 @@
+# Retain the repository's established portable source/document line endings.
+*.py text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.txt text eol=lf
 # Preserve binary reports, plots and trusted classifier snapshots.
 *.pdf binary
 *.png binary
